@@ -5,6 +5,8 @@ function processarTexto() {
   let texto = texto1 + "<br><br>" + texto2; // Concatenando os dois textos
   let output = document.getElementById("output");
 
+  // Limpar o conteúdo anterior
+  output.innerHTML = "";
   // Deeplings
   if (
     texto.includes(
