@@ -2,7 +2,8 @@ function obterDataAtual() {
   let data = new Date();
   let dia = String(data.getDate()).padStart(2, "0");
   let mes = String(data.getMonth() + 1).padStart(2, "0"); // +1 porque os meses são indexados de 0 a 11
-  return dia + "/" + mes;
+  let ano = data.getFullYear();
+  return dia + "/" + mes + "/" + ano;
 }
 
 // Código JavaScript para processar o texto inserido
