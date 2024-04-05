@@ -39,3 +39,17 @@ button:hover {
     padding: 5px 0;
     border-bottom: 1px solid #e0e0e0;
 }
+#featuredLabel{
+    margin-top: 10px;
+}
+#featured {
+    display: flex;
+
+}
+#boss{
+    display: inline-block;
+    margin-right: 10px;
+}
+#criatura{
+    display: inline-block;
+}

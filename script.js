@@ -5,6 +5,67 @@ function obterDataAtual() {
   let ano = data.getFullYear();
   return dia + "/" + mes + "/" + ano;
 }
+document.addEventListener("DOMContentLoaded", function () {
+  //Consultando boss boostado
+  fetch("https://api.tibiadata.com/v4/boostablebosses")
+    .then((response) => response.json())
+    .then((data) => {
+      const boostedBoss = data.boostable_bosses.boosted;
+      const bossesListElement = document.getElementById("boss");
+      bossesListElement.innerHTML = ""; // Limpa a lista antes de adicionar os novos elementos
+
+      if (boostedBoss.featured) {
+        // Verifica se o chefe boosted é 'featured'
+        const bossElement = document.createElement("div");
+        const boostableLabel = document.createElement("p");
+        const bossImage = document.createElement("img"); // Criando a tag de imagem
+        bossImage.src = boostedBoss.image_url; // Define o atributo src com a URL da imagem
+        bossImage.alt = boostedBoss.name; // Define o atributo alt com o nome do chefe
+
+        const bossNameElement = document.createElement("p"); // Criando um elemento <p> para o nome do chefe
+        bossNameElement.textContent = boostedBoss.name; // Definindo o texto do elemento <p>
+
+        bossElement.appendChild(bossImage); // Adiciona a imagem ao elemento do chefe
+        bossElement.appendChild(bossNameElement); // Adiciona o nome do chefe abaixo da imagem
+        bossesListElement.appendChild(bossElement);
+      } else {
+        bossesListElement.textContent =
+          "Nenhum chefe boostado em destaque encontrado.";
+      }
+    })
+    .catch((error) => {
+      console.error("Erro ao buscar dados:", error);
+    });
+
+  //consultando criaturas boostadas
+  fetch("https://api.tibiadata.com/v4/creatures")
+    .then((response) => response.json())
+    .then((data) => {
+      const creaturesList = data.creatures.creature_list; // Acessa a lista de criaturas
+      const creaturesListElement = document.getElementById("criatura");
+      creaturesListElement.innerHTML = ""; // Limpa a lista antes de adicionar os novos elementos
+
+      creaturesList.forEach((creature) => {
+        if (creature.featured) {
+          // Verifica se a criatura é 'featured'
+          const creatureElement = document.createElement("div");
+          const creatureImage = document.createElement("img"); // Criando a tag de imagem
+          creatureImage.src = creature.image_url; // Define o atributo src com a URL da imagem
+          creatureImage.alt = "Imagem da criatura"; // Define uma descrição genérica para a imagem
+
+          const creatureNameElement = document.createElement("p"); // Criando um elemento <p> para o nome da criatura
+          creatureNameElement.textContent = `${creature.name}`; // Definindo o texto do elemento <p>
+
+          creatureElement.appendChild(creatureImage); // Adiciona a imagem ao elemento da criatura
+          creatureElement.appendChild(creatureNameElement); // Adiciona o nome da criatura abaixo da imagem
+          creaturesListElement.appendChild(creatureElement);
+        }
+      });
+    })
+    .catch((error) => {
+      console.error("Erro ao buscar dados das criaturas:", error);
+    });
+});
 
 // Código JavaScript para processar o texto inserido
 function processarTexto() {
@@ -15,11 +76,12 @@ function processarTexto() {
 
   // Limpar o conteúdo anterior
   output.innerHTML = "";
-   // Obtendo a data atual no formato "dd/MM"
-   let dataAtual = obterDataAtual();
+  // Obtendo a data atual no formato "dd/MM"
+  let dataAtual = obterDataAtual();
 
-   // Adicionando a primeira linha com a data atual
-   output.innerHTML += "<strong>Check diário</strong> - " + dataAtual + "<br><br>";
+  // Adicionando a primeira linha com a data atual
+  output.innerHTML +=
+    "<strong>Check diário</strong> - " + dataAtual + "<br><br>";
 
   // Deeplings
   if (
@@ -554,5 +616,21 @@ function processarTexto() {
   // Se nenhum caso corresponder, exiba uma mensagem padrão
   if (output.innerHTML === "") {
     output.innerHTML = "Nenhuma informação correspondente encontrada.";
+  }
+
+  window.onload = function () {
+    var versionElement = document.getElementById("version");
+    if (versionElement) {
+      fetchVersion();
+    }
+  };
+
+  function fetchVersion() {
+    fetch("version.txt") // Altere 'version.txt' para o caminho correto do seu arquivo de versão
+      .then((response) => response.text())
+      .then((version) => {
+        document.getElementById("version").innerText = version;
+      })
+      .catch((error) => console.error("Erro ao recuperar a versão:", error));
   }
 }
