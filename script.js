@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const boostableLabel = document.createElement("p");
         const bossImage = document.createElement("img"); // Criando a tag de imagem
         bossImage.src = boostedBoss.image_url; // Define o atributo src com a URL da imagem
-        bossImage.alt = boostedBoss.name; // Define o atributo alt com o nome do chefe
+        // bossImage.alt = boostedBoss.name; // Define o atributo alt com o nome do chefe
 
         const bossNameElement = document.createElement("p"); // Criando um elemento <p> para o nome do chefe
         bossNameElement.textContent = boostedBoss.name; // Definindo o texto do elemento <p>
@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function () {
           const creatureElement = document.createElement("div");
           const creatureImage = document.createElement("img"); // Criando a tag de imagem
           creatureImage.src = creature.image_url; // Define o atributo src com a URL da imagem
-          creatureImage.alt = "Imagem da criatura"; // Define uma descrição genérica para a imagem
+          // creatureImage.alt = ""; // Define uma descrição genérica para a imagem
 
           const creatureNameElement = document.createElement("p"); // Criando um elemento <p> para o nome da criatura
           creatureNameElement.textContent = `${creature.name}`; // Definindo o texto do elemento <p>
