@@ -617,20 +617,4 @@ function processarTexto() {
   if (output.innerHTML === "") {
     output.innerHTML = "Nenhuma informação correspondente encontrada.";
   }
-
-  window.onload = function () {
-    var versionElement = document.getElementById("version");
-    if (versionElement) {
-      fetchVersion();
-    }
-  };
-
-  function fetchVersion() {
-    fetch("version.txt") // Altere 'version.txt' para o caminho correto do seu arquivo de versão
-      .then((response) => response.text())
-      .then((version) => {
-        document.getElementById("version").innerText = version;
-      })
-      .catch((error) => console.error("Erro ao recuperar a versão:", error));
-  }
 }
