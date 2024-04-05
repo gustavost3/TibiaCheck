@@ -1,10 +1,3 @@
-function obterDataAtual() {
-  let data = new Date();
-  let dia = String(data.getDate()).padStart(2, "0");
-  let mes = String(data.getMonth() + 1).padStart(2, "0"); // +1 porque os meses são indexados de 0 a 11
-  let ano = data.getFullYear();
-  return dia + "/" + mes + "/" + ano;
-}
 document.addEventListener("DOMContentLoaded", function () {
   //Consultando boss boostado
   fetch("https://api.tibiadata.com/v4/boostablebosses")
@@ -23,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // bossImage.alt = boostedBoss.name; // Define o atributo alt com o nome do chefe
 
         const bossNameElement = document.createElement("p"); // Criando um elemento <p> para o nome do chefe
-        bossNameElement.textContent = boostedBoss.name; // Definindo o texto do elemento <p>
+        bossNameElement.textContent = '- ' + boostedBoss.name; // Definindo o texto do elemento <p>
 
         bossElement.appendChild(bossImage); // Adiciona a imagem ao elemento do chefe
         bossElement.appendChild(bossNameElement); // Adiciona o nome do chefe abaixo da imagem
@@ -54,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
           // creatureImage.alt = ""; // Define uma descrição genérica para a imagem
 
           const creatureNameElement = document.createElement("p"); // Criando um elemento <p> para o nome da criatura
-          creatureNameElement.textContent = `${creature.name}`; // Definindo o texto do elemento <p>
+          creatureNameElement.textContent = `- ${creature.name}`; // Definindo o texto do elemento <p>
 
           creatureElement.appendChild(creatureImage); // Adiciona a imagem ao elemento da criatura
           creatureElement.appendChild(creatureNameElement); // Adiciona o nome da criatura abaixo da imagem
@@ -66,6 +59,15 @@ document.addEventListener("DOMContentLoaded", function () {
       console.error("Erro ao buscar dados das criaturas:", error);
     });
 });
+
+//Codigo para mostrar data
+function obterDataAtual() {
+  let data = new Date();
+  let dia = String(data.getDate()).padStart(2, "0");
+  let mes = String(data.getMonth() + 1).padStart(2, "0"); // +1 porque os meses são indexados de 0 a 11
+  let ano = data.getFullYear();
+  return dia + "/" + mes + "/" + ano;
+}
 
 // Código JavaScript para processar o texto inserido
 function processarTexto() {
