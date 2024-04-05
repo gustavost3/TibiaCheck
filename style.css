@@ -81,14 +81,6 @@ button:hover {
     transform: translateY(18px);
     text-align: center;
 }
-#criaturaLabel h6,
-#bossLabel h6,
-#rashidLabel h6 {
-    transform: translateY(5px);
-    text-align: center;
-    font-size: 10px;
-    font-weight: 800;
-}
 
 @media only screen and (max-width: 768px) {
 
