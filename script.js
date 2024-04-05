@@ -83,6 +83,74 @@ function processarTexto() {
   output.innerHTML +=
     "<strong>Check diário</strong> - " + dataAtual + "<br><br>";
 
+  //Yasir
+  if (
+    texto.includes(
+      "Oriental ships sighted! A trader for exotic creature products may currently be visiting Carlin, Ankrahmun or Liberty Bay."
+    )
+  ) {
+    output.innerHTML += "- 👳‍♂️ <strong>YASIR ESTÁ ONLINE!</strong>.<br><br>";
+  }
+
+  // Horestis
+  if (texto.includes("Horestis near Ankrahmun is slumbering in his tomb")) {
+    output.innerHTML +=
+      "- ⚱️ <strong>Ankrahmun - Horestis</strong> - JARROS - Respawn forte pleno - Bestiário.<br><br>";
+  }
+  if (
+    texto.includes(
+      "The great Pharaoh Horestis near Ankrahmun has risen from his slumber"
+    )
+  ) {
+    output.innerHTML +=
+      "- 🦂 <strong>Ankrahmun - Horestis</strong> - TODOS OS JARROS QUEBRADOS - Continua respawn forte pleno - Bestiários.<br><br>";
+  }
+  if (
+    texto.includes(
+      "Horestis's body has been desecrated. His curse now hangs over Ankrahmun like the shadow of the vulture and his tomb is almost empty"
+    )
+  ) {
+    output.innerHTML +=
+      "- 🦂 <strong>Ankrahmun - Horestis</strong> - Respawn fraco - Bestiário.<br><br>";
+  }
+  if (
+    texto.includes(
+      "Horestis's body has been desecrated. By now, his curse has ended though. His minions are recovering slowly"
+    )
+  ) {
+    output.innerHTML +=
+      "- 🦂 <strong>Ankrahmun - Horestis</strong> - Respawn forte reduzido - Bestiário.<br><br>";
+  }
+  
+  // Twisted Waters
+  if (texto.includes("The great lake near Port Hope is clean")) {
+    output.innerHTML +=
+      "- 💧 <strong>Port Hope - Shimmer Swimmers</strong> - O lago está limpo.<br><br>";
+  }
+  if (
+    texto.includes("Corpses are piling up in the great lake near Port Hope")
+  ) {
+    output.innerHTML +=
+      "- 💧 <strong>Port Hope - Shimmer Swimmers</strong> - O lago está prestes a sujar.<br><br>";
+  }
+  if (
+    texto.includes(
+      "The great lake near Port Hope is dirty. Shimmer swimmers can be seen under the surface"
+    )
+  ) {
+    output.innerHTML +=
+      "- 💧 <strong>Port Hope - Shimmer Swimmers</strong> - O lago está sujo e com peixes.<br><br>";
+  }
+  if (
+    texto.includes(
+      "The great lake near Port Hope is dirty. No shimmer swimmers have been seen under the surface for quite some time now"
+    )
+  ) {
+    output.innerHTML +=
+      "- 💧 <strong>Port Hope - Shimmer Swimmers</strong> -  Acabaram os peixes e o Lago ficará limpo no próximo SS.<br><br>";
+  }
+
+
   // Deeplings
   if (
     texto.includes(
@@ -133,36 +201,6 @@ function processarTexto() {
       "- 🐍 <strong>Oramond</strong> - Área subaquática - 000~999 Renegade Quara mortos - se alguém fazer a quest e o servidor atingir 1k de morte, voltará pro início.<br><br>";
   }
 
-  // Horestis
-  if (texto.includes("Horestis near Ankrahmun is slumbering in his tomb")) {
-    output.innerHTML +=
-      "- ⚱️ <strong>Ankrahmun - Horestis</strong> - JARROS - Respawn forte pleno - Bestiário.<br><br>";
-  }
-  if (
-    texto.includes(
-      "The great Pharaoh Horestis near Ankrahmun has risen from his slumber"
-    )
-  ) {
-    output.innerHTML +=
-      "- 🦂 <strong>Ankrahmun - Horestis</strong> - TODOS OS JARROS QUEBRADOS - Continua respawn forte pleno - Bestiários.<br><br>";
-  }
-  if (
-    texto.includes(
-      "Horestis's body has been desecrated. His curse now hangs over Ankrahmun like the shadow of the vulture and his tomb is almost empty"
-    )
-  ) {
-    output.innerHTML +=
-      "- 🦂 <strong>Ankrahmun - Horestis</strong> - Respawn fraco - Bestiário.<br><br>";
-  }
-  if (
-    texto.includes(
-      "Horestis's body has been desecrated. By now, his curse has ended though. His minions are recovering slowly"
-    )
-  ) {
-    output.innerHTML +=
-      "- 🦂 <strong>Ankrahmun - Horestis</strong> - Respawn forte reduzido - Bestiário.<br><br>";
-  }
-
   // Thornfire
   if (
     texto.includes(
@@ -193,34 +231,6 @@ function processarTexto() {
   ) {
     output.innerHTML +=
       "- 🔥 <strong>Venore - Shadowthorn</strong> - A vila está em chamas mas voltará ao normal amanhã.<br><br>";
-  }
-
-  // Twisted Waters
-  if (texto.includes("The great lake near Port Hope is clean")) {
-    output.innerHTML +=
-      "- 💧 <strong>Port Hope - Shimmer Swimmers</strong> - O lago está limpo.<br><br>";
-  }
-  if (
-    texto.includes("Corpses are piling up in the great lake near Port Hope")
-  ) {
-    output.innerHTML +=
-      "- 💧 <strong>Port Hope - Shimmer Swimmers</strong> - O lago está prestes a sujar.<br><br>";
-  }
-  if (
-    texto.includes(
-      "The great lake near Port Hope is dirty. Shimmer swimmers can be seen under the surface"
-    )
-  ) {
-    output.innerHTML +=
-      "- 💧 <strong>Port Hope - Shimmer Swimmers</strong> - O lago está sujo e com peixes.<br><br>";
-  }
-  if (
-    texto.includes(
-      "The great lake near Port Hope is dirty. No shimmer swimmers have been seen under the surface for quite some time now"
-    )
-  ) {
-    output.innerHTML +=
-      "- 💧 <strong>Port Hope - Shimmer Swimmers</strong> -  Acabaram os peixes e o Lago ficará limpo no próximo SS.<br><br>";
   }
 
   // Febre Venore
@@ -525,13 +535,6 @@ function processarTexto() {
   ) {
     output.innerHTML +=
       "- 🐕 <strong>Thais</strong> - Cachorro Noodles fugiu - achievement <strong>Dog Sitter</strong> e recompensa.<br><br>";
-  }
-  if (
-    texto.includes(
-      "Oriental ships sighted! A trader for exotic creature products may currently be visiting Carlin, Ankrahmun or Liberty Bay."
-    )
-  ) {
-    output.innerHTML += "- 👳‍♂️ <strong>YASIR ESTÁ ONLINE!</strong>.<br><br>";
   }
   if (
     texto.includes(
