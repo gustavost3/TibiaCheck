@@ -618,3 +618,24 @@ function processarTexto() {
     output.innerHTML = "Nenhuma informação correspondente encontrada.";
   }
 }
+
+function obterNomeDoDiaDaSemana() {
+  const data = new Date();
+  const diaDaSemana = data.getDay(); // 0 é domingo, 1 é segunda-feira, etc.
+
+  const nomesDosDias = [
+    "Carlin",
+    "Svargrond",
+    "Liberty Bay",
+    "Port Hope",
+    "Ankrahmun",
+    "Darashia",
+    "Edron",
+  ];
+  const nomeDoDia = nomesDosDias[diaDaSemana];
+
+  const elementoNomeDia = document.getElementById("nomeDoDiaDaSemana");
+  elementoNomeDia.textContent = nomeDoDia;
+}
+
+window.addEventListener("DOMContentLoaded", obterNomeDoDiaDaSemana);

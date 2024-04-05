@@ -49,7 +49,10 @@ button:hover {
 #boss{
     display: inline-block;
     margin-right: 10px;
+    
 }
 #criatura{
     display: inline-block;
+    margin-right: 10px;
 }
+
