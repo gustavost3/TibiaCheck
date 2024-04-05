@@ -1,3 +1,10 @@
+function obterDataAtual() {
+  let data = new Date();
+  let dia = String(data.getDate()).padStart(2, "0");
+  let mes = String(data.getMonth() + 1).padStart(2, "0"); // +1 porque os meses são indexados de 0 a 11
+  return dia + "/" + mes;
+}
+
 // Código JavaScript para processar o texto inserido
 function processarTexto() {
   let texto1 = document.getElementById("inputText1").value;
@@ -7,6 +14,12 @@ function processarTexto() {
 
   // Limpar o conteúdo anterior
   output.innerHTML = "";
+   // Obtendo a data atual no formato "dd/MM"
+   let dataAtual = obterDataAtual();
+
+   // Adicionando a primeira linha com a data atual
+   output.innerHTML += "<strong>Check diário</strong> - " + dataAtual + "<br><br>";
+
   // Deeplings
   if (
     texto.includes(
@@ -14,7 +27,7 @@ function processarTexto() {
     )
   ) {
     output.innerHTML +=
-      "- 🔱 <strong>Gray Island - Deepling</strong> - 01 - cristal e âncora...<br><br>";
+      "- 🔱 <strong>Gray Island - Deepling</strong> - 01 - cristal e âncora.<br><br>";
   }
   if (
     texto.includes(
@@ -22,45 +35,45 @@ function processarTexto() {
     )
   ) {
     output.innerHTML +=
-      "- 🔱 <strong>Gray Island - Deepling</strong> - 02 - dia de bater caixa..<br><br>";
+      "- 🔱 <strong>Gray Island - Deepling</strong> - 02 - dia de bater caixa.<br><br>";
   }
   if (texto.includes("The inner arcanum of the deep has been breached.")) {
     output.innerHTML +=
-      "- 🔱 <strong>Gray Island - Deepling</strong> - 03 - dia de verificar boss..<br><br>";
+      "- 🔱 <strong>Gray Island - Deepling</strong> - 03 - dia de verificar boss.<br><br>";
   }
 
   // Hive
   if (texto.includes("The hive is well defended and prepared for war")) {
     output.innerHTML +=
-      "- 🐞 <strong>Gray Island - Hive</strong> - 01 - colméia está fechada..<br><br>";
+      "- 🐞 <strong>Gray Island - Hive</strong> - 01 - colméia está fechada.<br><br>";
   }
   if (texto.includes("The defences of the hive are breached")) {
     output.innerHTML +=
-      "- 🐞 <strong>Gray Island - Hive</strong> - 02 - parte da colméia está aberta..<br><br>";
+      "- 🐞 <strong>Gray Island - Hive</strong> - 02 - parte da colméia está aberta.<br><br>";
   }
   if (texto.includes("The hives defences have fallen")) {
     output.innerHTML +=
-      "- 🐞 <strong>Gray Island - Hive</strong> - 03 - maioria do local acessível sem gastar Favour Points..<br><br>";
+      "- 🐞 <strong>Gray Island - Hive</strong> - 03 - maioria do local acessível sem gastar Favour Points.<br><br>";
   }
 
   // Oramond
   if (texto.includes("The Fire-Feathered Serpent is fast asleep")) {
     output.innerHTML +=
-      "- 🐍 <strong>Oramond</strong> - Área subaquática - 0000~1499 Seacrest Serpents mortas..<br><br>";
+      "- 🐍 <strong>Oramond</strong> - Área subaquática - 0000~1499 Seacrest Serpents mortas.<br><br>";
   }
   if (texto.includes("The Fire-Feathered Serpent dreams")) {
     output.innerHTML +=
-      "- 🐍 <strong>Oramond</strong> - Área subaquática - 1500~2999 Seacrest Serpents mortas..<br><br>";
+      "- 🐍 <strong>Oramond</strong> - Área subaquática - 1500~2999 Seacrest Serpents mortas.<br><br>";
   }
   if (texto.includes("The Fire-Feathered Serpent is awake")) {
     output.innerHTML +=
-      "- 🐍 <strong>Oramond</strong> - Área subaquática - 000~999 Renegade Quara mortos - se alguém fazer a quest e o servidor atingir 1k de morte, voltará pro início..<br><br>";
+      "- 🐍 <strong>Oramond</strong> - Área subaquática - 000~999 Renegade Quara mortos - se alguém fazer a quest e o servidor atingir 1k de morte, voltará pro início.<br><br>";
   }
 
   // Horestis
   if (texto.includes("Horestis near Ankrahmun is slumbering in his tomb")) {
     output.innerHTML +=
-      "- ⚱️ <strong>Ankrahmun - Horestis</strong> - JARROS - Respawn forte pleno - Bestiário..<br><br>";
+      "- ⚱️ <strong>Ankrahmun - Horestis</strong> - JARROS - Respawn forte pleno - Bestiário.<br><br>";
   }
   if (
     texto.includes(
@@ -68,7 +81,7 @@ function processarTexto() {
     )
   ) {
     output.innerHTML +=
-      "- 🦂 <strong>Ankrahmun - Horestis</strong> - TODOS OS JARROS QUEBRADOS - Continua respawn forte pleno - Bestiários..<br><br>";
+      "- 🦂 <strong>Ankrahmun - Horestis</strong> - TODOS OS JARROS QUEBRADOS - Continua respawn forte pleno - Bestiários.<br><br>";
   }
   if (
     texto.includes(
@@ -76,7 +89,7 @@ function processarTexto() {
     )
   ) {
     output.innerHTML +=
-      "- 🦂 <strong>Ankrahmun - Horestis</strong> - Respawn fraco - Bestiário..<br><br>";
+      "- 🦂 <strong>Ankrahmun - Horestis</strong> - Respawn fraco - Bestiário.<br><br>";
   }
   if (
     texto.includes(
@@ -84,7 +97,7 @@ function processarTexto() {
     )
   ) {
     output.innerHTML +=
-      "- 🦂 <strong>Ankrahmun - Horestis</strong> - Respawn forte reduzido - Bestiário..<br><br>";
+      "- 🦂 <strong>Ankrahmun - Horestis</strong> - Respawn forte reduzido - Bestiário.<br><br>";
   }
 
   // Thornfire
@@ -94,7 +107,7 @@ function processarTexto() {
     )
   ) {
     output.innerHTML +=
-      "- 🔥 <strong>Venore - Shadowthorn</strong> - Elfos normais e talvez guardas vivos..<br><br>";
+      "- 🔥 <strong>Venore - Shadowthorn</strong> - Elfos normais e talvez guardas vivos.<br><br>";
   }
   if (
     texto.includes(
@@ -102,13 +115,13 @@ function processarTexto() {
     )
   ) {
     output.innerHTML +=
-      "- 🔥 <strong>Venore - Shadowthorn</strong> - Vários elfos normais foram mortos - amanhã muda..<br><br>";
+      "- 🔥 <strong>Venore - Shadowthorn</strong> - Vários elfos normais foram mortos - amanhã muda.<br><br>";
   }
   if (
     texto.includes("Shadowthorn burns, and the followers of the bog with it!")
   ) {
     output.innerHTML +=
-      "- 🔥 <strong>Venore - Shadowthorn</strong> - a Vila está em chamas..<br><br>";
+      "- 🔥 <strong>Venore - Shadowthorn</strong> - a Vila está em chamas.<br><br>";
   }
   if (
     texto.includes(
@@ -116,19 +129,19 @@ function processarTexto() {
     )
   ) {
     output.innerHTML +=
-      "- 🔥 <strong>Venore - Shadowthorn</strong> - A vila está em chamas mas voltará ao normal amanhã..<br><br>";
+      "- 🔥 <strong>Venore - Shadowthorn</strong> - A vila está em chamas mas voltará ao normal amanhã.<br><br>";
   }
 
   // Twisted Waters
   if (texto.includes("The great lake near Port Hope is clean")) {
     output.innerHTML +=
-      "- 💧 <strong>Port Hope - Shimmer Swimmers</strong> - O lago está limpo..<br><br>";
+      "- 💧 <strong>Port Hope - Shimmer Swimmers</strong> - O lago está limpo.<br><br>";
   }
   if (
     texto.includes("Corpses are piling up in the great lake near Port Hope")
   ) {
     output.innerHTML +=
-      "- 💧 <strong>Port Hope - Shimmer Swimmers</strong> - O lago está prestes a sujar..<br><br>";
+      "- 💧 <strong>Port Hope - Shimmer Swimmers</strong> - O lago está prestes a sujar.<br><br>";
   }
   if (
     texto.includes(
@@ -136,7 +149,7 @@ function processarTexto() {
     )
   ) {
     output.innerHTML +=
-      "- 💧 <strong>Port Hope - Shimmer Swimmers</strong> - O lago está sujo e com peixes..<br><br>";
+      "- 💧 <strong>Port Hope - Shimmer Swimmers</strong> - O lago está sujo e com peixes.<br><br>";
   }
   if (
     texto.includes(
@@ -144,7 +157,7 @@ function processarTexto() {
     )
   ) {
     output.innerHTML +=
-      "- 💧 <strong>Port Hope - Shimmer Swimmers</strong> -  Acabaram os peixes e o Lago ficará limpo no próximo SS..<br><br>";
+      "- 💧 <strong>Port Hope - Shimmer Swimmers</strong> -  Acabaram os peixes e o Lago ficará limpo no próximo SS.<br><br>";
   }
 
   // Febre Venore
@@ -154,7 +167,7 @@ function processarTexto() {
     )
   ) {
     output.innerHTML +=
-      "- 💊 <strong>Venore - Febre</strong> - Raids a cada 30~90 min..<br><br>";
+      "- 💊 <strong>Venore - Febre</strong> - Raids a cada 30~90 min.<br><br>";
   }
   if (
     texto.includes(
@@ -162,7 +175,7 @@ function processarTexto() {
     )
   ) {
     output.innerHTML +=
-      "- 💊 <strong>Venore - Febre</strong> - Tudo normal....<br><br>";
+      "- 💊 <strong>Venore - Febre</strong> - Tudo normal...<br><br>";
   }
   if (
     texto.includes(
@@ -170,7 +183,7 @@ function processarTexto() {
     )
   ) {
     output.innerHTML +=
-      "- 💊 <strong>Venore - Febre</strong> - Npc pede medicine Pouch - impede raid..<br><br>";
+      "- 💊 <strong>Venore - Febre</strong> - Npc pede medicine Pouch - impede raid.<br><br>";
   }
 
   // Steamship
@@ -180,23 +193,23 @@ function processarTexto() {
     )
   ) {
     output.innerHTML +=
-      "- 🛥️ <strong>Thais - Barco a vapor</strong> - Precisa de Carvão..<br><br>";
+      "- 🛥️ <strong>Thais - Barco a vapor</strong> - Precisa de Carvão.<br><br>";
   }
   if (
     texto.includes("The steamship from Thais to Kazordoon is currently runnin")
   ) {
     output.innerHTML +=
-      "- 🛥️ <strong>Thais - Barco a vapor</strong> - Rota ativa..<br><br>";
+      "- 🛥️ <strong>Thais - Barco a vapor</strong> - Rota ativa.<br><br>";
   }
 
   // Horses
   if (texto.includes("Horses are on the loose near Thais")) {
     output.innerHTML +=
-      "- 🐎 <strong>Thais - Cavalos</strong> - Bestiario de todos os tipos - você pode domar o <strong>wild horse</strong> que nasce a cada 3 horas a partir do SS..<br><br>";
+      "- 🐎 <strong>Thais - Cavalos</strong> - Bestiario de todos os tipos - você pode domar o <strong>wild horse</strong> que nasce a cada 3 horas a partir do SS.<br><br>";
   }
   if (texto.includes("The horse services near Thais and Venore are working")) {
     output.innerHTML +=
-      "- 🐎 <strong>Thais - Cavalos</strong> - tudo normal..<br><br>";
+      "- 🐎 <strong>Thais - Cavalos</strong> - tudo normal.<br><br>";
   }
 
   // Master's Voice
@@ -206,39 +219,39 @@ function processarTexto() {
     )
   ) {
     output.innerHTML +=
-      "- 🧫 <strong>Edron - Master's Voice</strong> - Dungeon com Slime..<br><br>";
+      "- 🧫 <strong>Edron - Master's Voice</strong> - Dungeon com Slime.<br><br>";
   }
 
   // Demon War
   if (texto.includes("The demon war is in a stalemate once again")) {
     output.innerHTML +=
-      "- 👿 <strong>Edron - Demon War</strong> - empatado..<br><br>";
+      "- 👿 <strong>Edron - Demon War</strong> - empatado.<br><br>";
   }
   if (texto.includes("The Shaburak are in advantage right now")) {
     output.innerHTML +=
-      "- 👿 <strong>Edron - Demon War</strong> - Shaburak (vermelho) lord - bestiário..<br><br>";
+      "- 👿 <strong>Edron - Demon War</strong> - Shaburak (vermelho) lord - bestiário.<br><br>";
   }
   if (texto.includes("The Shaburak have summoned their leaders")) {
     output.innerHTML +=
-      "- 👿 <strong>Edron - Demon War</strong> - Shaburak (vermelho) prince e lord - bestiário e achievement..<br><br>";
+      "- 👿 <strong>Edron - Demon War</strong> - Shaburak (vermelho) prince e lord - bestiário e achievement.<br><br>";
   }
   if (texto.includes("The Askarak are in advantage right now")) {
     output.innerHTML +=
-      "- 👿 <strong>Edron - Demon War</strong> - Askarak (verde) lord - bestiário..<br><br>";
+      "- 👿 <strong>Edron - Demon War</strong> - Askarak (verde) lord - bestiário.<br><br>";
   }
   if (texto.includes("The Askarak have summoned their leaders")) {
     output.innerHTML +=
-      "- 👿 <strong>Edron - Demon War</strong> - Askarak (verde) prince e lord - bestiário e achievement..<br><br>";
+      "- 👿 <strong>Edron - Demon War</strong> - Askarak (verde) prince e lord - bestiário e achievement.<br><br>";
   }
 
   // Raging Mage
   if (texto.includes("The raging mage in Zao has been slain")) {
     output.innerHTML +=
-      "- 🪄 <strong>Zao - Raging Mage</strong> - Portal Fechado - mataram os 2000 Yielothax - mataram o boss..<br><br>";
+      "- 🪄 <strong>Zao - Raging Mage</strong> - Portal Fechado - mataram os 2000 Yielothax - mataram o boss.<br><br>";
   }
   if (texto.includes("The raging mage is currently in his tower in Zao")) {
     output.innerHTML +=
-      "- 🪄 <strong>Zao - Raging Mage</strong> - PORTAL ABERTO - Yielothax/BOSS..<br><br>";
+      "- 🪄 <strong>Zao - Raging Mage</strong> - PORTAL ABERTO - Yielothax/BOSS.<br><br>";
   }
 
   // White Deer
@@ -246,7 +259,7 @@ function processarTexto() {
     texto.includes("There are white deer roaming the region near Ab'Dendriel")
   ) {
     output.innerHTML +=
-      "- 🫎 <strong>Ab'dendriel - White Deer</strong> - ativo..<br><br>";
+      "- 🫎 <strong>Ab'dendriel - White Deer</strong> - ativo.<br><br>";
   }
   if (
     texto.includes(
@@ -254,13 +267,13 @@ function processarTexto() {
     )
   ) {
     output.innerHTML +=
-      "- 🫎 <strong>Ab'dendriel - White Deer</strong> - ativo mas população caindo..<br><br>";
+      "- 🫎 <strong>Ab'dendriel - White Deer</strong> - ativo mas população caindo.<br><br>";
   }
   if (
     texto.includes("Starving wolves are roaming the region near Ab'Dendriel")
   ) {
     output.innerHTML +=
-      "- 🫎 <strong>Ab'dendriel - White Deer</strong> - Starving Wolf - entregar captured wolf..<br><br>";
+      "- 🫎 <strong>Ab'dendriel - White Deer</strong> - Starving Wolf - entregar captured wolf.<br><br>";
   }
 
   //Awash
@@ -270,7 +283,7 @@ function processarTexto() {
     )
   ) {
     output.innerHTML +=
-      "- ⚒️ <strong>Kazordoon - Mina Pick 'N Shovel</strong> - mina inundada - usar carvão..<br><br>";
+      "- ⚒️ <strong>Kazordoon - Mina Pick 'N Shovel</strong> - mina inundada - usar carvão.<br><br>";
   }
   if (
     texto.includes(
@@ -278,7 +291,7 @@ function processarTexto() {
     )
   ) {
     output.innerHTML +=
-      "- ⚒️ <strong>Kazordoon - Mina Pick 'N Shovel</strong> - Água drenada - precisa matar para evitar inundação..<br><br>";
+      "- ⚒️ <strong>Kazordoon - Mina Pick 'N Shovel</strong> - Água drenada - precisa matar para evitar inundação.<br><br>";
   }
   if (
     texto.includes(
@@ -286,7 +299,7 @@ function processarTexto() {
     )
   ) {
     output.innerHTML +=
-      "- ⚒️ <strong>Kazordoon - Mina Pick 'N Shovel</strong> - Água drenada - mataram o suficiente pra evitar inundação..<br><br>";
+      "- ⚒️ <strong>Kazordoon - Mina Pick 'N Shovel</strong> - Água drenada - mataram o suficiente pra evitar inundação.<br><br>";
   }
   if (
     texto.includes(
@@ -294,7 +307,7 @@ function processarTexto() {
     )
   ) {
     output.innerHTML +=
-      "- ⚒️ <strong>Kazordoon - Mina Pick 'N Shovel</strong> - agua drenada - último dia..<br><br>";
+      "- ⚒️ <strong>Kazordoon - Mina Pick 'N Shovel</strong> - agua drenada - último dia.<br><br>";
   }
 
   //Quadro de avisos Adventurers Guild
@@ -304,7 +317,7 @@ function processarTexto() {
     )
   ) {
     output.innerHTML +=
-      "- 💰 <strong>Roubo ao banco</strong> - Ativo - seja rápido..<br><br>";
+      "- 💰 <strong>Roubo ao banco</strong> - Ativo - seja rápido.<br><br>";
   }
   if (
     texto.includes(
@@ -312,7 +325,7 @@ function processarTexto() {
     )
   ) {
     output.innerHTML +=
-      "- 🧙 <strong>Venore - Pantano</strong> - Wyda está entediada - achievements Torn Treasures e Someone's Bored..<br><br>";
+      "- 🧙 <strong>Venore - Pantano</strong> - Wyda está entediada - achievements Torn Treasures e Someone's Bored.<br><br>";
   }
   if (
     texto.includes(
@@ -320,7 +333,7 @@ function processarTexto() {
     )
   ) {
     output.innerHTML +=
-      "- 🦑 <strong>Yalahar - Vengoth - Tentacle Pieces</strong> - boss - achievement dos bosses..<br><br>";
+      "- 🦑 <strong>Yalahar - Vengoth - Tentacle Pieces</strong> - boss - achievement dos bosses.<br><br>";
   }
   if (
     texto.includes(
@@ -328,7 +341,7 @@ function processarTexto() {
     )
   ) {
     output.innerHTML +=
-      "- 🏕️ <strong>Outlaw Camp</strong> - área sudoeste inundada - achievement <strong>Down the Drain</strong>..<br><br>";
+      "- 🏕️ <strong>Outlaw Camp</strong> - área sudoeste inundada - achievement <strong>Down the Drain</strong>.<br><br>";
   }
   if (
     texto.includes(
@@ -336,7 +349,7 @@ function processarTexto() {
     )
   ) {
     output.innerHTML +=
-      "- ⛺ <strong>Ankrahmun</strong> - Acampamento Nomad - bestiario e achievement <strong>Chest Robber</strong>..<br><br>";
+      "- ⛺ <strong>Ankrahmun</strong> - Acampamento Nomad - bestiario e achievement <strong>Chest Robber</strong>.<br><br>";
   }
   if (
     texto.includes(
@@ -344,7 +357,7 @@ function processarTexto() {
     )
   ) {
     output.innerHTML +=
-      "- 🌋 <strong>Goroma - Vulcão ativo</strong> - bestiario e achievement Fire from the Earth..<br><br>";
+      "- 🌋 <strong>Goroma - Vulcão ativo</strong> - bestiario e achievement Fire from the Earth.<br><br>";
   }
   if (
     texto.includes(
@@ -352,7 +365,7 @@ function processarTexto() {
     )
   ) {
     output.innerHTML +=
-      "- 🐺 <strong>Dias 12, 13 e 14</strong> - licantropia não desaparece sozinho, usem purple nightshade blossom. Licantropos irão dropar moonlight crystal nesses dias..<br><br>";
+      "- 🐺 <strong>Dias 12, 13 e 14</strong> - licantropia não desaparece sozinho, usem purple nightshade blossom. Licantropos irão dropar moonlight crystal nesses dias.<br><br>";
   }
   if (
     texto.includes(
@@ -360,7 +373,7 @@ function processarTexto() {
     )
   ) {
     output.innerHTML +=
-      "- 🚪 <strong>Fury Gates</strong> - Ativo em algum lugar - montaria e boss..<br><br>";
+      "- 🚪 <strong>Fury Gates</strong> - Ativo em algum lugar - montaria e boss.<br><br>";
   }
   if (
     texto.includes(
@@ -368,7 +381,7 @@ function processarTexto() {
     )
   ) {
     output.innerHTML +=
-      "- 🏹 <strong>Kazordoon</strong> - Caverna leste - <strong>hunters e poacher</strong>..<br><br>";
+      "- 🏹 <strong>Kazordoon</strong> - Caverna leste - <strong>hunters e poacher</strong>.<br><br>";
   }
   if (
     texto.includes(
@@ -376,7 +389,7 @@ function processarTexto() {
     )
   ) {
     output.innerHTML +=
-      "- 🐻 <strong>Kazordoon</strong> - Caverna leste - <strong>boar e bear</strong>..<br><br>";
+      "- 🐻 <strong>Kazordoon</strong> - Caverna leste - <strong>boar e bear</strong>.<br><br>";
   }
   if (
     texto.includes(
@@ -384,7 +397,7 @@ function processarTexto() {
     )
   ) {
     output.innerHTML +=
-      "- 🐺 <strong>Kazordoon</strong> - Caverna leste - <strong>ghost wolf e gloom wolf</strong>..<br><br>";
+      "- 🐺 <strong>Kazordoon</strong> - Caverna leste - <strong>ghost wolf e gloom wolf</strong>.<br><br>";
   }
   if (
     texto.includes(
@@ -392,7 +405,7 @@ function processarTexto() {
     )
   ) {
     output.innerHTML +=
-      "- 🐞 <strong>Liberty Bay</strong> Mini colméia ativa no oeste - achievement Cartography 101..<br><br>";
+      "- 🐞 <strong>Liberty Bay</strong> Mini colméia ativa no oeste - achievement Cartography 101.<br><br>";
   }
   if (
     texto.includes(
@@ -400,7 +413,7 @@ function processarTexto() {
     )
   ) {
     output.innerHTML +=
-      "- 👑 <strong>Thais</strong> - dia do rei - achievement <strong>Loyal Subject</strong> e chance de bestiário - troll guard..<br><br>";
+      "- 👑 <strong>Thais</strong> - dia do rei - achievement <strong>Loyal Subject</strong> e chance de bestiário - troll guard.<br><br>";
   }
   if (
     texto.includes(
@@ -408,7 +421,7 @@ function processarTexto() {
     )
   ) {
     output.innerHTML +=
-      "- 🪓 <strong>Carlin</strong> - Lenhador Ativo - achievement Whistle-Blower ou npc (não pode os dois)..<br><br>";
+      "- 🪓 <strong>Carlin</strong> - Lenhador Ativo - achievement Whistle-Blower ou npc (não pode os dois).<br><br>";
   }
   if (
     texto.includes(
@@ -416,7 +429,7 @@ function processarTexto() {
     )
   ) {
     output.innerHTML +=
-      "- 🕷️ <strong>Venore - Estrada oeste</strong> - boss giant spider e achievement <strong>Nestling</strong>..<br><br>";
+      "- 🕷️ <strong>Venore - Estrada oeste</strong> - boss giant spider e achievement <strong>Nestling</strong>.<br><br>";
   }
   if (
     texto.includes(
@@ -424,7 +437,7 @@ function processarTexto() {
     )
   ) {
     output.innerHTML +=
-      "- 🏝️ <strong>Nightmare Isle</strong> - perto da <strong>Tumba do petróleo</strong>..<br><br>";
+      "- 🏝️ <strong>Nightmare Isle</strong> - perto da <strong>Tumba do petróleo</strong>.<br><br>";
   }
   if (
     texto.includes(
@@ -432,7 +445,7 @@ function processarTexto() {
     )
   ) {
     output.innerHTML +=
-      "- 🏝️ <strong>Nightmare Isle</strong> - norte de <strong>Darashia</strong>..<br><br>";
+      "- 🏝️ <strong>Nightmare Isle</strong> - norte de <strong>Darashia</strong>.<br><br>";
   }
   if (
     texto.includes(
@@ -440,7 +453,7 @@ function processarTexto() {
     )
   ) {
     output.innerHTML +=
-      "- 🏝️ <strong>Nightmare Isle</strong> - perto de <strong>Drefia</strong>..<br><br>";
+      "- 🏝️ <strong>Nightmare Isle</strong> - perto de <strong>Drefia</strong>.<br><br>";
   }
   if (
     texto.includes(
@@ -448,14 +461,14 @@ function processarTexto() {
     )
   ) {
     output.innerHTML +=
-      "- 🐕 <strong>Thais</strong> - Cachorro Noodles fugiu - achievement <strong>Dog Sitter</strong> e recompensa..<br><br>";
+      "- 🐕 <strong>Thais</strong> - Cachorro Noodles fugiu - achievement <strong>Dog Sitter</strong> e recompensa.<br><br>";
   }
   if (
     texto.includes(
       "Oriental ships sighted! A trader for exotic creature products may currently be visiting Carlin, Ankrahmun or Liberty Bay."
     )
   ) {
-    output.innerHTML += "- 👳‍♂️ <strong>YASIR ESTÁ ONLINE!</strong>..<br><br>";
+    output.innerHTML += "- 👳‍♂️ <strong>YASIR ESTÁ ONLINE!</strong>.<br><br>";
   }
   if (
     texto.includes(
@@ -463,7 +476,7 @@ function processarTexto() {
     )
   ) {
     output.innerHTML +=
-      "- 🏞️ <strong>Zao</strong> - Rio planice sul ativo - achievement <strong>Desert Fisher</strong>..<br><br>";
+      "- 🏞️ <strong>Zao</strong> - Rio planice sul ativo - achievement <strong>Desert Fisher</strong>.<br><br>";
   }
   if (
     texto.includes(
@@ -471,7 +484,7 @@ function processarTexto() {
     )
   ) {
     output.innerHTML +=
-      "- 👻 <strong>Spirit Ground</strong> - <strong>divisa Dara/Ank</strong>..<br><br>";
+      "- 👻 <strong>Spirit Ground</strong> - <strong>divisa Dara/Ank</strong>.<br><br>";
   }
   if (
     texto.includes(
@@ -479,7 +492,7 @@ function processarTexto() {
     )
   ) {
     output.innerHTML +=
-      "- 🐘 <strong>Port Hope</strong> - <strong>Terrified elephant</strong> - bestiario - achievement <strong>Trail of the Ape God</strong>..<br><br>";
+      "- 🐘 <strong>Port Hope</strong> - <strong>Terrified elephant</strong> - bestiario - achievement <strong>Trail of the Ape God</strong>.<br><br>";
   }
   if (
     texto.includes(
@@ -487,7 +500,7 @@ function processarTexto() {
     )
   ) {
     output.innerHTML +=
-      "- ❄️ <strong>Svargrond</strong> - Neve derretendo - <strong>flores</strong> - achievement <strong>Ice Harvester</strong>..<br><br>";
+      "- ❄️ <strong>Svargrond</strong> - Neve derretendo - <strong>flores</strong> - achievement <strong>Ice Harvester</strong>.<br><br>";
   }
   if (
     texto.includes(
@@ -495,7 +508,7 @@ function processarTexto() {
     )
   ) {
     output.innerHTML +=
-      "- 🧊 <strong>Port Hope - Iceberg</strong> - chakoya e achievement Cartography 101..<br><br>";
+      "- 🧊 <strong>Port Hope - Iceberg</strong> - chakoya e achievement Cartography 101.<br><br>";
   }
   if (
     texto.includes(
@@ -503,7 +516,7 @@ function processarTexto() {
     )
   ) {
     output.innerHTML +=
-      "- 🏹 <strong>Port Hope</strong> - hunter OU voodoomaster na área norte da medusa tower - bestiario..<br><br>";
+      "- 🏹 <strong>Port Hope</strong> - hunter OU voodoomaster na área norte da medusa tower - bestiario.<br><br>";
   }
   if (
     texto.includes(
@@ -511,7 +524,7 @@ function processarTexto() {
     )
   ) {
     output.innerHTML +=
-      "- 👹 <strong>Bibby Bloodbath</strong> - ativo - achievement <strong>Bibby's Bloodbath</strong>..<br><br>";
+      "- 👹 <strong>Bibby Bloodbath</strong> - ativo - achievement <strong>Bibby's Bloodbath</strong>.<br><br>";
   }
   if (
     texto.includes(
@@ -519,7 +532,7 @@ function processarTexto() {
     )
   ) {
     output.innerHTML +=
-      "- 👻 <strong>Spirit Ground</strong> - <strong>Vengoth</strong>..<br><br>";
+      "- 👻 <strong>Spirit Ground</strong> - <strong>Vengoth</strong>.<br><br>";
   }
   if (
     texto.includes(
@@ -527,14 +540,14 @@ function processarTexto() {
     )
   ) {
     output.innerHTML +=
-      "- 👻 <strong>Spirit Ground</strong> - <strong>Ghostland</strong>..<br><br>";
+      "- 👻 <strong>Spirit Ground</strong> - <strong>Ghostland</strong>.<br><br>";
   }
   if (
     texto.includes(
       "An ice bridge now connects Svargrond to a frosty island, where monsters and a strange frozen creature"
     )
   ) {
-    output.innerHTML += "- 🧊 <strong>Chyllfroest</strong> Ativa..<br><br>";
+    output.innerHTML += "- 🧊 <strong>Chyllfroest</strong> Ativa.<br><br>";
   }
 
   // Se nenhum caso corresponder, exiba uma mensagem padrão
