@@ -49,10 +49,33 @@ button:hover {
 #boss{
     display: inline-block;
     margin-right: 10px;
-    
+    text-align: center;
+    width:  9vw;
 }
+
 #criatura{
     display: inline-block;
     margin-right: 10px;
+    text-align: center;
+    width: 9vw;
 }
 
+#rashid {
+    display: inline-block;
+    margin-right: 10px;
+    text-align: center;
+    width: 9vw;
+}
+
+#boss p, #rashid p, #criatura p{
+    background: linear-gradient(120deg, rgba(176, 0, 2, 1) 0%, rgba(181, 5, 3, 1) 10%, rgba(185, 11, 5, 1) 20%, rgba(190, 16, 6, 1) 30%, rgba(194, 22, 7, 1) 40%, rgba(199, 27, 9, 1) 50%, rgba(204, 32, 10, 1) 60%, rgba(208, 38, 11, 1) 70%, rgba(213, 43, 12, 1) 80%, rgba(217, 49, 14, 1) 90%, rgba(222, 54, 15, 1) 100%);
+    color: white;
+    transform: translateY(16px);
+    border-end-end-radius: 5px;
+    border-end-start-radius: 5px;
+}
+
+#criaturaLabel p, #bossLabel p, #rashidLabel p{
+    transform: translateY(18px);
+    text-align: center;
+}
