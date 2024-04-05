@@ -46,36 +46,75 @@ button:hover {
     display: flex;
 
 }
-#boss{
-    display: inline-block;
-    margin-right: 10px;
-    text-align: center;
-    width:  9vw;
-}
 
-#criatura{
-    display: inline-block;
-    margin-right: 10px;
-    text-align: center;
-    width: 9vw;
-}
-
+#boss,
+#criatura,
 #rashid {
     display: inline-block;
     margin-right: 10px;
     text-align: center;
-    width: 9vw;
+    width: 30%;
+    /* Porcentagem da largura da tela */
+    max-width: 200px;
+    /* Largura máxima */
 }
 
-#boss p, #rashid p, #criatura p{
+#boss p,
+#rashid p,
+#criatura p {
     background: linear-gradient(120deg, rgba(176, 0, 2, 1) 0%, rgba(181, 5, 3, 1) 10%, rgba(185, 11, 5, 1) 20%, rgba(190, 16, 6, 1) 30%, rgba(194, 22, 7, 1) 40%, rgba(199, 27, 9, 1) 50%, rgba(204, 32, 10, 1) 60%, rgba(208, 38, 11, 1) 70%, rgba(213, 43, 12, 1) 80%, rgba(217, 49, 14, 1) 90%, rgba(222, 54, 15, 1) 100%);
     color: white;
     transform: translateY(16px);
     border-end-end-radius: 5px;
     border-end-start-radius: 5px;
+    font-size: 14px;
+    /* Tamanho da fonte */
+    padding: 5px 10px;
+    /* Espaçamento interno */
+    white-space: nowrap;
+    /* Impede que o texto quebre para uma nova linha */
 }
 
-#criaturaLabel p, #bossLabel p, #rashidLabel p{
+#criaturaLabel p,
+#bossLabel p,
+#rashidLabel p {
     transform: translateY(18px);
     text-align: center;
+}
+
+@media only screen and (max-width: 768px) {
+
+    #boss,
+    #criatura,
+    #rashid {
+        display: block;
+        /* Alterado para bloco em telas menores */
+        width: 90%;
+        /* Largura de 90% da tela */
+        max-width: none;
+        /* Largura máxima removida */
+        margin: 10px auto;
+        /* Margens automáticas para centralizar */
+    }
+
+    #boss,
+    #criatura,
+    #rashid {
+        width: 100%;
+        /* Ajusta para 100% da largura da tela em dispositivos móveis */
+        max-width: none;
+        /* Remova a largura máxima */
+        margin: 10px auto;
+        /* Margens automáticas para centralizar */
+    }
+}
+
+@media only screen and (min-width: 769px) {
+
+    #boss,
+    #criatura,
+    #rashid {
+        width: 100%;
+        /* Volta para 30% da largura da tela em telas maiores */
+    }
 }
