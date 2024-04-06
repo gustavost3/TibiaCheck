@@ -1,3 +1,14 @@
+#logo {
+    position: absolute;
+    top: 10px; /* Distância do topo */
+    right: 10px; /* Distância da direita */
+    margin-top: 20px;
+    margin-right: -10px;
+}
+#logo img {
+    width: 100px; /* Defina o tamanho desejado */
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -6,7 +17,7 @@ body {
 }
 
 input[type="text"] {
-    width: 80%;
+    width: 75%;
     padding: 10px;
     font-size: 16px;
     margin-bottom: 10px;
@@ -91,7 +102,7 @@ button:hover {
     #rashid {
         display: block;
         /* Alterado para bloco em telas menores */
-        width: 90%;
+        width: 70%;
         /* Largura de 90% da tela */
         max-width: none;
         /* Largura máxima removida */
