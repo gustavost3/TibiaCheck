@@ -102,7 +102,7 @@ button:hover {
     #rashid {
         display: block;
         /* Alterado para bloco em telas menores */
-        width: 70%;
+        width: 90%;
         /* Largura de 90% da tela */
         max-width: none;
         /* Largura máxima removida */
