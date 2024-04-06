@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // bossImage.alt = boostedBoss.name; // Define o atributo alt com o nome do chefe
 
         const bossNameElement = document.createElement("p"); // Criando um elemento <p> para o nome do chefe
-        bossNameElement.textContent = '- ' + boostedBoss.name; // Definindo o texto do elemento <p>
+        bossNameElement.textContent = boostedBoss.name; // Definindo o texto do elemento <p>
 
         bossElement.appendChild(bossImage); // Adiciona a imagem ao elemento do chefe
         bossElement.appendChild(bossNameElement); // Adiciona o nome do chefe abaixo da imagem
@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
           // creatureImage.alt = ""; // Define uma descrição genérica para a imagem
 
           const creatureNameElement = document.createElement("p"); // Criando um elemento <p> para o nome da criatura
-          creatureNameElement.textContent = `- ${creature.name}`; // Definindo o texto do elemento <p>
+          creatureNameElement.textContent = `${creature.name}`; // Definindo o texto do elemento <p>
 
           creatureElement.appendChild(creatureImage); // Adiciona a imagem ao elemento da criatura
           creatureElement.appendChild(creatureNameElement); // Adiciona o nome da criatura abaixo da imagem

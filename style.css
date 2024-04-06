@@ -26,7 +26,6 @@ button:hover {
 }
 
 #output {
-    white-space: pre-line;
     margin-top: 20px;
     padding: 10px;
     background-color: #ffffff;
@@ -35,9 +34,12 @@ button:hover {
 }
 
 #output p {
+    line-height: 1;
     margin: 0;
     padding: 5px 0;
     border-bottom: 1px solid #e0e0e0;
+    font: 10px;
+    letter-spacing: -1px;
 }
 #featuredLabel{
     margin-top: 10px;
