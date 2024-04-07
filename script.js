@@ -621,8 +621,10 @@ function processarTexto() {
     output.innerHTML += "- 🧊 <strong>Chyllfroest</strong> Ativa.<br><br>";
   }
 
-  output.innerHTML += "- Criatura do dia: " + creatureName + "<br><br>";
-  output.innerHTML += "- Boss do dia: " + bossName + "<br><br>";
+  output.innerHTML +=
+    "- <strong> 🧌 Criatura do dia</strong>: " + creatureName + "<br><br>";
+  output.innerHTML +=
+    "- <strong>👺 Boss do dia</strong>: " + bossName + "<br><br>";
 
   // Se nenhum caso corresponder, exiba uma mensagem padrão
   if (output.innerHTML === "") {
