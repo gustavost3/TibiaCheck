@@ -147,6 +147,10 @@ button:hover {
         margin: 10px auto;
         /* Margens automáticas para centralizar */
     }
+    #tibiacheck {
+        display: none;
+         /* Esconda a div em telas menores que 600px de largura */
+    }
 }
 
 @media only screen and (min-width: 769px) {
