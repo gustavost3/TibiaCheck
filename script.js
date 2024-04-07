@@ -620,18 +620,21 @@ function processarTexto() {
   ) {
     output.innerHTML += "- 🧊 <strong>Chyllfroest</strong> Ativa.<br><br>";
   }
-
+  //Criatudas em destaque
   output.innerHTML +=
-    "- <strong> 🧌 Criatura do dia</strong>: " + creatureName + "<br><br>";
+    "- <strong> 🧌 Criatura do dia</strong>: " + creatureName + ".<br><br>";
   output.innerHTML +=
-    "- <strong>👺 Boss do dia</strong>: " + bossName + "<br><br>";
+    "- <strong>👺 Boss do dia</strong>: " + bossName + ".<br><br>";
+  //rashid
+  output.innerHTML +=
+    "- <strong>👳‍♂️ Rashid está em " + rashid + ". <br><br> </strong>";
 
   // Se nenhum caso corresponder, exiba uma mensagem padrão
   if (output.innerHTML === "") {
     output.innerHTML = "Nenhuma informação correspondente encontrada.";
   }
 }
-
+let rashid;
 function obterNomeDoDiaDaSemana() {
   const data = new Date();
   const diaDaSemana = data.getDay(); // 0 é domingo, 1 é segunda-feira, etc.
@@ -649,6 +652,7 @@ function obterNomeDoDiaDaSemana() {
 
   const elementoNomeDia = document.getElementById("nomeDoDiaDaSemana");
   elementoNomeDia.textContent = nomeDoDia;
+  rashid = nomeDoDia;
 }
 
 window.addEventListener("DOMContentLoaded", obterNomeDoDiaDaSemana);
