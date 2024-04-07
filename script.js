@@ -1,3 +1,5 @@
+let bossName = "";
+let creatureName = "";
 document.addEventListener("DOMContentLoaded", function () {
   //Consultando boss boostado
   fetch("https://api.tibiadata.com/v4/boostablebosses")
@@ -20,6 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         bossElement.appendChild(bossImage); // Adiciona a imagem ao elemento do chefe
         bossElement.appendChild(bossNameElement); // Adiciona o nome do chefe abaixo da imagem
+        bossName = boostedBoss.name; //Salva o nome do boss boostado na variavel bossName
         bossesListElement.appendChild(bossElement);
       } else {
         bossesListElement.textContent =
@@ -48,6 +51,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
           const creatureNameElement = document.createElement("p"); // Criando um elemento <p> para o nome da criatura
           creatureNameElement.textContent = `${creature.name}`; // Definindo o texto do elemento <p>
+          creatureName = creature.name; //Salva o nome da criatura boostada na variavel creatureName
 
           creatureElement.appendChild(creatureImage); // Adiciona a imagem ao elemento da criatura
           creatureElement.appendChild(creatureNameElement); // Adiciona o nome da criatura abaixo da imagem
@@ -123,7 +127,7 @@ function processarTexto() {
     output.innerHTML +=
       "- 🦂 <strong>Ankrahmun - Horestis</strong> - Respawn forte reduzido - Bestiário.<br><br>";
   }
-  
+
   // Twisted Waters
   if (texto.includes("The great lake near Port Hope is clean")) {
     output.innerHTML +=
@@ -151,7 +155,6 @@ function processarTexto() {
     output.innerHTML +=
       "- 💧 <strong>Port Hope - Shimmer Swimmers</strong> -  Acabaram os peixes e o Lago ficará limpo no próximo SS.<br><br>";
   }
-
 
   // Deeplings
   if (
@@ -617,6 +620,9 @@ function processarTexto() {
   ) {
     output.innerHTML += "- 🧊 <strong>Chyllfroest</strong> Ativa.<br><br>";
   }
+
+  output.innerHTML += "- Criatura do dia: " + creatureName + "<br><br>";
+  output.innerHTML += "- Boss do dia: " + bossName + "<br><br>";
 
   // Se nenhum caso corresponder, exiba uma mensagem padrão
   if (output.innerHTML === "") {

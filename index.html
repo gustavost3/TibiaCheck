@@ -28,18 +28,17 @@
         <button onclick="processarTexto()">Check!</button>
     </div>
     
-    <div id="output"></div>
 
-<!-- div com boss e criaturas boostadas -->
+    <!-- div com boss e criaturas boostadas -->
     <div id="featuredLabel" class="">
         <h3>Criaturas em destaque:</h3>
     </div>
     <div id="featured" class="col-12">
-        <div id="criaturaLabel" class="card-header">
+        <div id="criaturaLabel">
             <p class="titulo-pequeno">Criatura do dia: </p>
             <div id="criatura" class="card rounded shadow"></div>
         </div>
-        
+    
         <div id="bossLabel">
             <p class="titulo-pequeno">Boss do dia: </p>
             <div id="boss" class="card rounded shadow"></div>
@@ -48,10 +47,15 @@
             <p class="titulo-pequeno">Rashid está em: </p>
             <div id="rashid" class="card rounded shadow">
                 <img src="src/assets/img/Rashid.gif" alt="">
-                <strong><p id="nomeDoDiaDaSemana"></p></strong>
+                <strong>
+                    <p id="nomeDoDiaDaSemana"></p>
+                </strong>
             </div>
         </div>
     </div>
+
+<!-- div de outpu -->
+    <div id="output"></div>
 
 <!-- Div com info da arena drome-->
 

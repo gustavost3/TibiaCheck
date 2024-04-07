@@ -1,14 +1,16 @@
+/* centralizar logo no topo da pagina */
 #logo {
-    position: absolute;
-    top: 10px; /* Distância do topo */
-    right: 10px; /* Distância da direita */
-    margin-top: 20px;
-    margin-right: -10px;
-}
-#logo img {
-    width: 100px; /* Defina o tamanho desejado */
+    text-align: center;
+    margin-bottom: 20px;
 }
 
+#logo img {
+    display: block;
+    /* Para garantir que a imagem respeite a margem automática */
+    margin: 0 auto;
+    /* Centralizar horizontalmente */
+    max-width: 150px;
+}
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -16,8 +18,9 @@ body {
     background-color: #f0f0f0;
 }
 
+
 input[type="text"] {
-    width: 75%;
+    width: 100%;
     padding: 10px;
     font-size: 16px;
     margin-bottom: 10px;
@@ -52,9 +55,11 @@ button:hover {
     font: 10px;
     letter-spacing: -1px;
 }
-#featuredLabel{
+
+#featuredLabel {
     margin-top: 10px;
 }
+
 #featured {
     display: flex;
 
@@ -95,6 +100,7 @@ button:hover {
     text-align: center;
 }
 
+
 @media only screen and (max-width: 768px) {
 
     #boss,
@@ -131,3 +137,5 @@ button:hover {
         /* Volta para 30% da largura da tela em telas maiores */
     }
 }
+
+
