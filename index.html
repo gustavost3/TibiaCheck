@@ -15,52 +15,55 @@
     </head>
 </head>
 <body>
-    <div id="logo">
-        <img src="src/assets/img/BOI1.png" alt="Taberna do Boi">
-    </div>
-    
-<!-- div analise de texto -->
-    <div>
-        <input type="text" id="inputText1" placeholder="Insira o texto do NPC guia aqui...">
-        <input type="text" id="inputText2" placeholder="Insira o texto do quadro da Adventures Guild aqui...">
-    </div>
-    <div>
-        <button onclick="processarTexto()">Check!</button>
-    </div>
-    
+    <div class="container" id="conteudo">
+            <div id="logo">
+            <img src="src/assets/img/BOI1.png" alt="Taberna do Boi">
+        </div>
+        
+        <!-- div analise de texto -->
+        <div>
+            <input type="text" id="inputText1" placeholder="Insira o texto do NPC guia aqui...">
+            <input type="text" id="inputText2" placeholder="Insira o texto do quadro da Adventures Guild aqui...">
+        </div>
+        <div>
+            <button onclick="processarTexto()">Check!</button>
+        </div>
+        
 
-    <!-- div com boss e criaturas boostadas -->
-    <div id="featuredLabel" class="">
-        <h3>Criaturas em destaque:</h3>
-    </div>
-    <div id="featured" class="col-12">
-        <div id="criaturaLabel">
-            <p class="titulo-pequeno">Criatura do dia: </p>
-            <div id="criatura" class="card rounded shadow"></div>
+        <!-- div com boss e criaturas boostadas -->
+        <div id="featuredLabel" class="">
+            <h3>Criaturas em destaque:</h3>
         </div>
-    
-        <div id="bossLabel">
-            <p class="titulo-pequeno">Boss do dia: </p>
-            <div id="boss" class="card rounded shadow"></div>
-        </div>
-        <div id="rashidLabel">
-            <p class="titulo-pequeno">Rashid está em: </p>
-            <div id="rashid" class="card rounded shadow">
-                <img src="src/assets/img/Rashid.gif" alt="">
-                <strong>
-                    <p id="nomeDoDiaDaSemana"></p>
-                </strong>
+        <div id="featured" class="col-12">
+            <div id="criaturaLabel">
+                <p class="titulo-pequeno">Criatura do dia: </p>
+                <div id="criatura" class="card rounded shadow"></div>
+            </div>
+        
+            <div id="bossLabel">
+                <p class="titulo-pequeno">Boss do dia: </p>
+                <div id="boss" class="card rounded shadow"></div>
+            </div>
+            <div id="rashidLabel">
+                <p class="titulo-pequeno">Rashid está em: </p>
+                <div id="rashid" class="card rounded shadow">
+                    <img src="src/assets/img/Rashid.gif" alt="">
+                    <strong>
+                        <p id="nomeDoDiaDaSemana"></p>
+                    </strong>
+                </div>
             </div>
         </div>
+
+        <!-- div de outpu -->
+        <div id="output"></div>
+
+        <!-- Div com info da arena drome-->
+
+        <div id="tibiaDrome" class="mt-2">
+            <h6>- 🎰 TIBIA DROME: ultimo dia 17/04/2024 as 05:00</h6>
+        </div>
     </div>
-
-<!-- div de outpu -->
-    <div id="output"></div>
-
-<!-- Div com info da arena drome-->
-
-    <div id="tibiaDrome" class="mt-2">
-        <h6>- 🎰 TIBIA DROME: ultimo dia 17/04/2024 as 05:00</h6>
-    </div>
+    
 </body>
 </html>
