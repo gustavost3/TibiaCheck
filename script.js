@@ -89,6 +89,27 @@ function processarTexto() {
   output.innerHTML +=
     "<strong>Check diário</strong> - " + dataAtual + "<br><br>";
 
+  document.getElementById("copyButton").addEventListener("click", function () {
+    var outputDiv = document.getElementById("output");
+    var textToCopy = outputDiv.innerText || outputDiv.textContent;
+
+    // Criar um elemento de texto temporário para copiar o texto
+    var tempTextArea = document.createElement("textarea");
+    tempTextArea.value = textToCopy;
+
+    // Adicionar o elemento temporário à página
+    document.body.appendChild(tempTextArea);
+
+    // Selecionar e copiar o texto
+    tempTextArea.select();
+    document.execCommand("copy");
+
+    // Remover o elemento temporário
+    document.body.removeChild(tempTextArea);
+
+    alert("Conteúdo copiado!");
+  });
+
   //Yasir
   if (
     texto.includes(
