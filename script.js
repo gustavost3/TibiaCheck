@@ -1,5 +1,6 @@
 let bossName = "";
 let creatureName = "";
+let tibiaDrome = "- 🎰 TIBIA DROME: ultimo dia 17/04/2024 as 05:00";
 document.addEventListener("DOMContentLoaded", function () {
   //Consultando boss boostado
   fetch("https://api.tibiadata.com/v4/boostablebosses")
@@ -641,14 +642,16 @@ function processarTexto() {
   ) {
     output.innerHTML += "- 🧊 <strong>Chyllfroest</strong> Ativa.<br><br>";
   }
+  //rashid
+  output.innerHTML +=
+    "- <strong>👳‍♂️ Rashid está em " + rashid + ". <br><br> </strong>";
   //Criatudas em destaque
   output.innerHTML +=
     "- <strong> 🧌 Criatura do dia</strong>: " + creatureName + ".<br><br>";
   output.innerHTML +=
     "- <strong>👺 Boss do dia</strong>: " + bossName + ".<br><br>";
-  //rashid
-  output.innerHTML +=
-    "- <strong>👳‍♂️ Rashid está em " + rashid + ". <br><br> </strong>";
+  //tibiaDrome
+  output.innerHTML += tibiaDrome + ".<br><br>";
 
   // Se nenhum caso corresponder, exiba uma mensagem padrão
   if (output.innerHTML === "") {
