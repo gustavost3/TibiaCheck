@@ -78,7 +78,8 @@ function obterDataAtual() {
 function processarTexto() {
   let texto1 = document.getElementById("inputText1").value;
   let texto2 = document.getElementById("inputText2").value;
-  let texto = texto1 + "<br><br>" + texto2; // Concatenando os dois textos
+  let texto3 = document.getElementById("inputText3").value;
+  let texto = texto1 + "<br><br>" + texto2 + "<br><br>" + texto3; // Concatenando os tres textos
   let output = document.getElementById("output");
 
   // Limpar o conteúdo anterior
@@ -652,6 +653,57 @@ function processarTexto() {
     "- <strong>👺 Boss do dia</strong>: " + bossName + ".<br><br>";
   //tibiaDrome
   output.innerHTML += tibiaDrome + ".<br><br>";
+
+  //Oramond ==================================================================================================================
+  if (
+    texto.includes(
+      "The citizens of Rathleton voted for the shortcut back from the catacombs."
+    )
+  ) {
+    output.innerHTML +=
+      "- Oramond: Atalho para sair das catacombs de Demons.<br><br>";
+  }
+  if (texto.includes("The citizens of Rathleton voted for Lisa.")) {
+    output.innerHTML += "- Boss Lisa ativo.<br><br>";
+  }
+  if (texto.includes("The citizens of Rathleton voted for the Glooth Fairy")) {
+    output.innerHTML += "- Boss Glooth Fairy ativo.<br><br>";
+  }
+  if (texto.includes("citizens of Rathleton voted for Bullwa")) {
+    output.innerHTML += "- Boss Bullwark ativo.<br><br>";
+  }
+  if (
+    texto.includes(
+      "The citizens of Rathleton voted for the mechanical creatures raids."
+    )
+  ) {
+    output.innerHTML +=
+      "- Maior chance de raid de Mechanical Creatures na glooth factory (Salão glooth bomb).<br><br>";
+  }
+  if (texto.includes("for the wild life creatures raid")) {
+    output.innerHTML +=
+      "- Maior chance da raid Wild Life na glooth factory (Salão do Tremor Worm).<br><br>";
+  }
+  if (
+    texto.includes(
+      "The citizens of Rathleton voted for the wrath of evil in the dungeon."
+    )
+  ) {
+    output.innerHTML +=
+      "- Wrath of Evil na Magistrate Dungeon (Rathleton Catacombs).<br><br>";
+  }
+  if (
+    texto.includes(
+      "The citizens of Rathleton voted for the golems in the dungeon."
+    )
+  ) {
+    output.innerHTML +=
+      "- Golens na Magistrate Dungeon (Rathleton Catacombs).<br><br>";
+  }
+  if (texto.includes("voted for the minotaurs in the dunge")) {
+    output.innerHTML +=
+      "- Minotaurs na Magistrate Dungeon (Rathleton Catacombs).<br><br>";
+  }
 
   // Se nenhum caso corresponder, exiba uma mensagem padrão
   if (output.innerHTML === "") {
