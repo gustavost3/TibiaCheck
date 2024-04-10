@@ -75,638 +75,687 @@ function obterDataAtual() {
 }
 
 // Código JavaScript para processar o texto inserido
-function processarTexto() {
+function processarTextoGuia() {
   let texto1 = document.getElementById("inputText1").value;
-  let texto2 = document.getElementById("inputText2").value;
-  let texto3 = document.getElementById("inputText3").value;
-  let texto = texto1 + "<br><br>" + texto2 + "<br><br>" + texto3; // Concatenando os três textos
+  let textoOutputDiario = texto1 + "<br><br>";
+  let outputDiario = document.getElementById("outputDiario");
+  let outputFeatured = document.getElementById("outputFeatured"); //mostrar criaturas em destaque em div separada
 
-  // Obtendo as referências das divs de saída
-  let output1 = document.getElementById("output1");
-  let output2 = document.getElementById("output2");
-  let output3 = document.getElementById("output3");
-
-  // Limpar o conteúdo anterior das divs de saída
-  output1.innerHTML = "";
-  output2.innerHTML = "";
-  output3.innerHTML = "";
-
+  // Limpar o conteúdo anterior
+  outputDiario.innerHTML = "";
+  outputFeatured.innerHTML = "";
   // Obtendo a data atual no formato "dd/MM"
   let dataAtual = obterDataAtual();
 
-  // Adicionando a primeira linha com a data atual em cada div de saída
-  output1.innerHTML +=
+  // Adicionando a primeira linha com a data atual
+  outputDiario.innerHTML +=
     "<strong>Check diário</strong> - " + dataAtual + "<br><br>";
-  output2.innerHTML +=
-    "<strong>Check diário</strong> - " + dataAtual + "<br><br>";
-  output3.innerHTML +=
+  outputFeatured.innerHTML +=
     "<strong>Check diário</strong> - " + dataAtual + "<br><br>";
 
-  // Função para copiar o conteúdo de uma div especificada pelo ID
-  function copyContent(divId) {
-    var outputDiv = document.getElementById(divId);
-    var textToCopy = outputDiv.innerText || outputDiv.textContent;
+  document
+    .getElementById("copyButtonDiario")
+    .addEventListener("click", function () {
+      var outputDiv = document.getElementById("outputDiario");
+      var textToCopy = outputDiv.innerText || outputDiv.textContent;
 
-    // Criar um elemento de texto temporário para copiar o texto
-    var tempTextArea = document.createElement("textarea");
-    tempTextArea.value = textToCopy;
+      // Criar um elemento de texto temporário para copiar o texto
+      var tempTextArea = document.createElement("textarea");
+      tempTextArea.value = textToCopy;
 
-    // Adicionar o elemento temporário à página
-    document.body.appendChild(tempTextArea);
+      // Adicionar o elemento temporário à página
+      document.body.appendChild(tempTextArea);
 
-    // Selecionar e copiar o texto
-    tempTextArea.select();
-    document.execCommand("copy");
+      // Selecionar e copiar o texto
+      tempTextArea.select();
+      document.execCommand("copy");
 
-    // Remover o elemento temporário
-    document.body.removeChild(tempTextArea);
+      // Remover o elemento temporário
+      document.body.removeChild(tempTextArea);
 
-    alert("Conteúdo copiado!");
-  }
-
-  // Selecionar os botões de cópia específicos para cada div
-  document.getElementById("copyButton1").addEventListener("click", function () {
-    copyContent("output1");
-  });
-
-  document.getElementById("copyButton2").addEventListener("click", function () {
-    copyContent("output2");
-  });
-
-  document.getElementById("copyButton3").addEventListener("click", function () {
-    copyContent("output3");
-  });
+      alert("Conteúdo copiado!");
+    });
 
   //Yasir
   if (
-    texto.includes(
+    textoOutputDiario.includes(
       "Oriental ships sighted! A trader for exotic creature products may currently be visiting Carlin, Ankrahmun or Liberty Bay."
     )
   ) {
-    output1.innerHTML += "- 👳‍♂️ <strong>YASIR ESTÁ ONLINE!</strong>.<br><br>";
+    outputDiario.innerHTML +=
+      "- 👳‍♂️ <strong>YASIR ESTÁ ONLINE!</strong>.<br><br>";
   }
 
   // Horestis
-  if (texto.includes("Horestis near Ankrahmun is slumbering in his tomb")) {
-    output1.innerHTML +=
+  if (
+    textoOutputDiario.includes(
+      "Horestis near Ankrahmun is slumbering in his tomb"
+    )
+  ) {
+    outputDiario.innerHTML +=
       "- ⚱️ <strong>Ankrahmun - Horestis</strong> - JARROS - Respawn forte pleno - Bestiário.<br><br>";
   }
   if (
-    texto.includes(
+    textoOutputDiario.includes(
       "The great Pharaoh Horestis near Ankrahmun has risen from his slumber"
     )
   ) {
-    output1.innerHTML +=
+    outputDiario.innerHTML +=
       "- 🦂 <strong>Ankrahmun - Horestis</strong> - TODOS OS JARROS QUEBRADOS - Continua respawn forte pleno - Bestiários.<br><br>";
   }
   if (
-    texto.includes(
+    textoOutputDiario.includes(
       "Horestis's body has been desecrated. His curse now hangs over Ankrahmun like the shadow of the vulture and his tomb is almost empty"
     )
   ) {
-    output1.innerHTML +=
+    outputDiario.innerHTML +=
       "- 🦂 <strong>Ankrahmun - Horestis</strong> - Respawn fraco - Bestiário.<br><br>";
   }
   if (
-    texto.includes(
+    textoOutputDiario.includes(
       "Horestis's body has been desecrated. By now, his curse has ended though. His minions are recovering slowly"
     )
   ) {
-    output1.innerHTML +=
+    outputDiario.innerHTML +=
       "- 🦂 <strong>Ankrahmun - Horestis</strong> - Respawn forte reduzido - Bestiário.<br><br>";
   }
 
   // Twisted Waters
-  if (texto.includes("The great lake near Port Hope is clean")) {
-    output1.innerHTML +=
+  if (textoOutputDiario.includes("The great lake near Port Hope is clean")) {
+    outputDiario.innerHTML +=
       "- 💧 <strong>Port Hope - Shimmer Swimmers</strong> - O lago está limpo.<br><br>";
   }
   if (
-    texto.includes("Corpses are piling up in the great lake near Port Hope")
+    textoOutputDiario.includes(
+      "Corpses are piling up in the great lake near Port Hope"
+    )
   ) {
-    output1.innerHTML +=
+    outputDiario.innerHTML +=
       "- 💧 <strong>Port Hope - Shimmer Swimmers</strong> - O lago está prestes a sujar.<br><br>";
   }
   if (
-    texto.includes(
+    textoOutputDiario.includes(
       "The great lake near Port Hope is dirty. Shimmer swimmers can be seen under the surface"
     )
   ) {
-    output1.innerHTML +=
+    outputDiario.innerHTML +=
       "- 💧 <strong>Port Hope - Shimmer Swimmers</strong> - O lago está sujo e com peixes.<br><br>";
   }
   if (
-    texto.includes(
+    textoOutputDiario.includes(
       "The great lake near Port Hope is dirty. No shimmer swimmers have been seen under the surface for quite some time now"
     )
   ) {
-    output1.innerHTML +=
+    outputDiario.innerHTML +=
       "- 💧 <strong>Port Hope - Shimmer Swimmers</strong> -  Acabaram os peixes e o Lago ficará limpo no próximo SS.<br><br>";
   }
 
   // Deeplings
   if (
-    texto.includes(
+    textoOutputDiario.includes(
       "The creatures of the deep are currently hiding in the black waters beneath"
     )
   ) {
-    output1.innerHTML +=
+    outputDiario.innerHTML +=
       "- 🔱 <strong>Gray Island - Deepling</strong> - 01 - cristal e âncora.<br><br>";
   }
   if (
-    texto.includes(
+    textoOutputDiario.includes(
       "God-king Qjell seems to be pleased, the floodgates to the Drowned Library have opened"
     )
   ) {
-    output1.innerHTML +=
+    outputDiario.innerHTML +=
       "- 🔱 <strong>Gray Island - Deepling</strong> - 02 - dia de bater caixa.<br><br>";
   }
-  if (texto.includes("The inner arcanum of the deep has been breached.")) {
-    output1.innerHTML +=
+  if (
+    textoOutputDiario.includes(
+      "The inner arcanum of the deep has been breached."
+    )
+  ) {
+    outputDiario.innerHTML +=
       "- 🔱 <strong>Gray Island - Deepling</strong> - 03 - dia de verificar boss.<br><br>";
   }
 
   // Hive
-  if (texto.includes("The hive is well defended and prepared for war")) {
-    output1.innerHTML +=
+  if (
+    textoOutputDiario.includes("The hive is well defended and prepared for war")
+  ) {
+    outputDiario.innerHTML +=
       "- 🐞 <strong>Gray Island - Hive</strong> - 01 - colméia está fechada.<br><br>";
   }
-  if (texto.includes("The defences of the hive are breached")) {
-    output1.innerHTML +=
+  if (textoOutputDiario.includes("The defences of the hive are breached")) {
+    outputDiario.innerHTML +=
       "- 🐞 <strong>Gray Island - Hive</strong> - 02 - parte da colméia está aberta.<br><br>";
   }
-  if (texto.includes("The hives defences have fallen")) {
-    output1.innerHTML +=
+  if (textoOutputDiario.includes("The hives defences have fallen")) {
+    outputDiario.innerHTML +=
       "- 🐞 <strong>Gray Island - Hive</strong> - 03 - maioria do local acessível sem gastar Favour Points.<br><br>";
   }
 
   // Oramond
-  if (texto.includes("The Fire-Feathered Serpent is fast asleep")) {
-    output1.innerHTML +=
+  if (textoOutputDiario.includes("The Fire-Feathered Serpent is fast asleep")) {
+    outputDiario.innerHTML +=
       "- 🐍 <strong>Oramond</strong> - Área subaquática - 0000~1499 Seacrest Serpents mortas.<br><br>";
   }
-  if (texto.includes("The Fire-Feathered Serpent dreams")) {
-    output1.innerHTML +=
+  if (textoOutputDiario.includes("The Fire-Feathered Serpent dreams")) {
+    outputDiario.innerHTML +=
       "- 🐍 <strong>Oramond</strong> - Área subaquática - 1500~2999 Seacrest Serpents mortas.<br><br>";
   }
-  if (texto.includes("The Fire-Feathered Serpent is awake")) {
-    output1.innerHTML +=
+  if (textoOutputDiario.includes("The Fire-Feathered Serpent is awake")) {
+    outputDiario.innerHTML +=
       "- 🐍 <strong>Oramond</strong> - Área subaquática - 000~999 Renegade Quara mortos - se alguém fazer a quest e o servidor atingir 1k de morte, voltará pro início.<br><br>";
   }
 
   // Thornfire
   if (
-    texto.includes(
+    textoOutputDiario.includes(
       "Countless firestarters are in their cells below Shadowthorn"
     )
   ) {
-    output1.innerHTML +=
+    outputDiario.innerHTML +=
       "- 🔥 <strong>Venore - Shadowthorn</strong> - Elfos normais e talvez guardas vivos.<br><br>";
   }
   if (
-    texto.includes(
+    textoOutputDiario.includes(
       "Most guards and elves preventing the firestarters from breaking out have been slain"
     )
   ) {
-    output1.innerHTML +=
+    outputDiario.innerHTML +=
       "- 🔥 <strong>Venore - Shadowthorn</strong> - Vários elfos normais foram mortos - amanhã muda.<br><br>";
   }
   if (
-    texto.includes("Shadowthorn burns, and the followers of the bog with it!")
+    textoOutputDiario.includes(
+      "Shadowthorn burns, and the followers of the bog with it!"
+    )
   ) {
-    output1.innerHTML +=
+    outputDiario.innerHTML +=
       "- 🔥 <strong>Venore - Shadowthorn</strong> - a Vila está em chamas.<br><br>";
   }
   if (
-    texto.includes(
+    textoOutputDiario.includes(
       "Shadowthorn burns, but the Tibians have been successfully fighting the fire as well as the firefighters"
     )
   ) {
-    output1.innerHTML +=
+    outputDiario.innerHTML +=
       "- 🔥 <strong>Venore - Shadowthorn</strong> - A vila está em chamas mas voltará ao normal amanhã.<br><br>";
   }
 
   // Febre Venore
   if (
-    texto.includes(
+    textoOutputDiario.includes(
       "The swamp fever has broken out in Venore and feverish citizens are roaming the streets"
     )
   ) {
-    output1.innerHTML +=
+    outputDiario.innerHTML +=
       "- 💊 <strong>Venore - Febre</strong> - Raids a cada 30~90 min.<br><br>";
   }
   if (
-    texto.includes(
+    textoOutputDiario.includes(
       "The swamp fever in Venore is currently under control and there is enough medicine"
     )
   ) {
-    output1.innerHTML +=
+    outputDiario.innerHTML +=
       "- 💊 <strong>Venore - Febre</strong> - Tudo normal...<br><br>";
   }
   if (
-    texto.includes(
+    textoOutputDiario.includes(
       "The swamp fever in Venore is currently under control, but medicine is direly needed to prevent the next"
     )
   ) {
-    output1.innerHTML +=
+    outputDiario.innerHTML +=
       "- 💊 <strong>Venore - Febre</strong> - Npc pede medicine Pouch - impede raid.<br><br>";
   }
 
   // Steamship
   if (
-    texto.includes(
+    textoOutputDiario.includes(
       "The steamship from Thais to Kazordoon is currently not running"
     )
   ) {
-    output1.innerHTML +=
+    outputDiario.innerHTML +=
       "- 🛥️ <strong>Thais - Barco a vapor</strong> - Precisa de Carvão.<br><br>";
   }
   if (
-    texto.includes("The steamship from Thais to Kazordoon is currently runnin")
+    textoOutputDiario.includes(
+      "The steamship from Thais to Kazordoon is currently runnin"
+    )
   ) {
-    output1.innerHTML +=
+    outputDiario.innerHTML +=
       "- 🛥️ <strong>Thais - Barco a vapor</strong> - Rota ativa.<br><br>";
   }
 
   // Horses
-  if (texto.includes("Horses are on the loose near Thais")) {
-    output1.innerHTML +=
+  if (textoOutputDiario.includes("Horses are on the loose near Thais")) {
+    outputDiario.innerHTML +=
       "- 🐎 <strong>Thais - Cavalos</strong> - Bestiario de todos os tipos - você pode domar o <strong>wild horse</strong> que nasce a cada 3 horas a partir do SS.<br><br>";
   }
-  if (texto.includes("The horse services near Thais and Venore are working")) {
-    output1.innerHTML +=
+  if (
+    textoOutputDiario.includes(
+      "The horse services near Thais and Venore are working"
+    )
+  ) {
+    outputDiario.innerHTML +=
       "- 🐎 <strong>Thais - Cavalos</strong> - tudo normal.<br><br>";
   }
 
   // Master's Voice
   if (
-    texto.includes(
+    textoOutputDiario.includes(
       "The strange tower with the servants on Edron is covered in slime"
     )
   ) {
-    output1.innerHTML +=
+    outputDiario.innerHTML +=
       "- 🧫 <strong>Edron - Master's Voice</strong> - Dungeon com Slime.<br><br>";
   }
 
   // Demon War
-  if (texto.includes("The demon war is in a stalemate once again")) {
-    output1.innerHTML +=
+  if (
+    textoOutputDiario.includes("The demon war is in a stalemate once again")
+  ) {
+    outputDiario.innerHTML +=
       "- 👿 <strong>Edron - Demon War</strong> - empatado.<br><br>";
   }
-  if (texto.includes("The Shaburak are in advantage right now")) {
-    output1.innerHTML +=
+  if (textoOutputDiario.includes("The Shaburak are in advantage right now")) {
+    outputDiario.innerHTML +=
       "- 👿 <strong>Edron - Demon War</strong> - Shaburak (vermelho) lord - bestiário.<br><br>";
   }
-  if (texto.includes("The Shaburak have summoned their leaders")) {
-    output1.innerHTML +=
+  if (textoOutputDiario.includes("The Shaburak have summoned their leaders")) {
+    outputDiario.innerHTML +=
       "- 👿 <strong>Edron - Demon War</strong> - Shaburak (vermelho) prince e lord - bestiário e achievement.<br><br>";
   }
-  if (texto.includes("The Askarak are in advantage right now")) {
-    output1.innerHTML +=
+  if (textoOutputDiario.includes("The Askarak are in advantage right now")) {
+    outputDiario.innerHTML +=
       "- 👿 <strong>Edron - Demon War</strong> - Askarak (verde) lord - bestiário.<br><br>";
   }
-  if (texto.includes("The Askarak have summoned their leaders")) {
-    output1.innerHTML +=
+  if (textoOutputDiario.includes("The Askarak have summoned their leaders")) {
+    outputDiario.innerHTML +=
       "- 👿 <strong>Edron - Demon War</strong> - Askarak (verde) prince e lord - bestiário e achievement.<br><br>";
   }
 
   // Raging Mage
-  if (texto.includes("The raging mage in Zao has been slain")) {
-    output1.innerHTML +=
+  if (textoOutputDiario.includes("The raging mage in Zao has been slain")) {
+    outputDiario.innerHTML +=
       "- 🪄 <strong>Zao - Raging Mage</strong> - Portal Fechado - mataram os 2000 Yielothax - mataram o boss.<br><br>";
   }
-  if (texto.includes("The raging mage is currently in his tower in Zao")) {
-    output1.innerHTML +=
+  if (
+    textoOutputDiario.includes(
+      "The raging mage is currently in his tower in Zao"
+    )
+  ) {
+    outputDiario.innerHTML +=
       "- 🪄 <strong>Zao - Raging Mage</strong> - PORTAL ABERTO - Yielothax/BOSS.<br><br>";
   }
 
   // White Deer
   if (
-    texto.includes("There are white deer roaming the region near Ab'Dendriel")
+    textoOutputDiario.includes(
+      "There are white deer roaming the region near Ab'Dendriel"
+    )
   ) {
-    output1.innerHTML +=
+    outputDiario.innerHTML +=
       "- 🫎 <strong>Ab'dendriel - White Deer</strong> - ativo.<br><br>";
   }
   if (
-    texto.includes(
+    textoOutputDiario.includes(
       "The number of white deer near Ab'Dendriel seems to be dwindling"
     )
   ) {
-    output1.innerHTML +=
+    outputDiario.innerHTML +=
       "- 🫎 <strong>Ab'dendriel - White Deer</strong> - ativo mas população caindo.<br><br>";
   }
   if (
-    texto.includes("Starving wolves are roaming the region near Ab'Dendriel")
+    textoOutputDiario.includes(
+      "Starving wolves are roaming the region near Ab'Dendriel"
+    )
   ) {
-    output1.innerHTML +=
+    outputDiario.innerHTML +=
       "- 🫎 <strong>Ab'dendriel - White Deer</strong> - Starving Wolf - entregar captured wolf.<br><br>";
   }
 
   //Awash
   if (
-    texto.includes(
+    textoOutputDiario.includes(
       "The mine tunnels under Kazordoon are currently flooded. Coal is needed to get the waterpumps running"
     )
   ) {
-    output1.innerHTML +=
+    outputDiario.innerHTML +=
       "- ⚒️ <strong>Kazordoon - Mina Pick 'N Shovel</strong> - mina inundada - usar carvão.<br><br>";
   }
   if (
-    texto.includes(
+    textoOutputDiario.includes(
       "The mine tunnels under Kazordoon are currently flooded, but enough coal has been delivered to keep the waterpumps running. The tunnels should be dry soon"
     )
   ) {
-    output1.innerHTML +=
+    outputDiario.innerHTML +=
       "- ⚒️ <strong>Kazordoon - Mina Pick 'N Shovel</strong> - Água drenada - precisa matar para evitar inundação.<br><br>";
   }
   if (
-    texto.includes(
+    textoOutputDiario.includes(
       "The water in the mine tunnels under Kazordoon is drained and enough deeplings have been killed today to ensure it remains that way"
     )
   ) {
-    output1.innerHTML +=
+    outputDiario.innerHTML +=
       "- ⚒️ <strong>Kazordoon - Mina Pick 'N Shovel</strong> - Água drenada - mataram o suficiente pra evitar inundação.<br><br>";
   }
   if (
-    texto.includes(
+    textoOutputDiario.includes(
       "Too many deeplings survived during the last five days, they will flood the tunnels and nothing can stop the"
     )
   ) {
-    output1.innerHTML +=
+    outputDiario.innerHTML +=
       "- ⚒️ <strong>Kazordoon - Mina Pick 'N Shovel</strong> - agua drenada - último dia.<br><br>";
   }
 
   //Quadro de avisos Adventurers Guild
   if (
-    texto.includes(
+    textoOutputDiario.includes(
       "Several banks in major coastal towns are being robbed! The thieves are still on the loose!"
     )
   ) {
-    output1.innerHTML +=
+    outputDiario.innerHTML +=
       "- 💰 <strong>Roubo ao banco</strong> - Ativo - seja rápido.<br><br>";
   }
   if (
-    texto.includes(
+    textoOutputDiario.includes(
       "Sharpen your sword! The witch Wyda seems to be bored so pay her a visit!"
     )
   ) {
-    output1.innerHTML +=
+    outputDiario.innerHTML +=
       "- 🧙 <strong>Venore - Pantano</strong> - Wyda está entediada - achievements Torn Treasures e Someone's Bored.<br><br>";
   }
   if (
-    texto.includes(
+    textoOutputDiario.includes(
       "In case you have some spare tentacle pieces, you can now use Devovorga's very essence to enter a boss lair!"
     )
   ) {
-    output1.innerHTML +=
+    outputDiario.innerHTML +=
       "- 🦑 <strong>Yalahar - Vengoth - Tentacle Pieces</strong> - boss - achievement dos bosses.<br><br>";
   }
   if (
-    texto.includes(
+    textoOutputDiario.includes(
       "The river south of the outlaw camp is flooding. A small island there should now be reachable safely."
     )
   ) {
-    output1.innerHTML +=
+    outputDiario.innerHTML +=
       "- 🏕️ <strong>Outlaw Camp</strong> - área sudoeste inundada - achievement <strong>Down the Drain</strong>.<br><br>";
   }
   if (
-    texto.includes(
+    textoOutputDiario.includes(
       "Nomads travel the eternal sands of Ankrahmun's desert. There must be a camp somewhere."
     )
   ) {
-    output1.innerHTML +=
+    outputDiario.innerHTML +=
       "- ⛺ <strong>Ankrahmun</strong> - Acampamento Nomad - bestiario e achievement <strong>Chest Robber</strong>.<br><br>";
   }
   if (
-    texto.includes(
+    textoOutputDiario.includes(
       "The volcano on Goroma sends its fiery message into the sky. A lot of creatures are flooding the lands together"
     )
   ) {
-    output1.innerHTML +=
+    outputDiario.innerHTML +=
       "- 🌋 <strong>Goroma - Vulcão ativo</strong> - bestiario e achievement Fire from the Earth.<br><br>";
   }
   if (
-    texto.includes(
+    textoOutputDiario.includes(
       "The full moon has a strange impact on the island of Grimvale. The small forest there seems darker, filled with nightly howls."
     )
   ) {
-    output1.innerHTML +=
+    outputDiario.innerHTML +=
       "- 🐺 <strong>Dias 12, 13 e 14</strong> - licantropia não desaparece sozinho, usem purple nightshade blossom. Licantropos irão dropar moonlight crystal nesses dias.<br><br>";
   }
   if (
-    texto.includes(
+    textoOutputDiario.includes(
       "A fiery fury gate has opened near one of the major cities somewhere in Tibia."
     )
   ) {
-    output1.innerHTML +=
+    outputDiario.innerHTML +=
       "- 🚪 <strong>Fury Gates</strong> - Ativo em algum lugar - montaria e boss.<br><br>";
   }
   if (
-    texto.includes(
+    textoOutputDiario.includes(
       "are ravaging the wildlife north of the Green Claw Swamp. But the animals seem to fight ba"
     )
   ) {
-    output1.innerHTML +=
+    outputDiario.innerHTML +=
       "- 🏹 <strong>Kazordoon</strong> - Caverna leste - <strong>hunters e poacher</strong>.<br><br>";
   }
   if (
-    texto.includes(
+    textoOutputDiario.includes(
       "The wild animals north of the Green Claw Swamp clearly dominate the area. But poachers come here to hunt them."
     )
   ) {
-    output1.innerHTML +=
+    outputDiario.innerHTML +=
       "- 🐻 <strong>Kazordoon</strong> - Caverna leste - <strong>boar e bear</strong>.<br><br>";
   }
   if (
-    texto.includes(
+    textoOutputDiario.includes(
       "Poachers have slaughtered nearly all wild animals north of the Green Claw Swamp. But vengeful spirits show up there now!"
     )
   ) {
-    output1.innerHTML +=
+    outputDiario.innerHTML +=
       "- 🐺 <strong>Kazordoon</strong> - Caverna leste - <strong>ghost wolf e gloom wolf</strong>.<br><br>";
   }
   if (
-    texto.includes(
+    textoOutputDiario.includes(
       "A hive infestation has been sighted south-west of Liberty Bay! An unnerving humming and buzzing is filling the air."
     )
   ) {
-    output1.innerHTML +=
+    outputDiario.innerHTML +=
       "- 🐞 <strong>Liberty Bay</strong> Mini colméia ativa no oeste - achievement Cartography 101.<br><br>";
   }
   if (
-    texto.includes(
+    textoOutputDiario.includes(
       "Hail to the King! It's Kingsday in Thais, join the celebration!"
     )
   ) {
-    output1.innerHTML +=
+    outputDiario.innerHTML +=
       "- 👑 <strong>Thais</strong> - dia do rei - achievement <strong>Loyal Subject</strong> e chance de bestiário - troll guard.<br><br>";
   }
   if (
-    texto.includes(
+    textoOutputDiario.includes(
       "Looks like the Queen's own royal trees are being cut down! The lumberjacks responsible shall be put to justice."
     )
   ) {
-    output1.innerHTML +=
+    outputDiario.innerHTML +=
       "- 🪓 <strong>Carlin</strong> - Lenhador Ativo - achievement Whistle-Blower ou npc (não pode os dois).<br><br>";
   }
   if (
-    texto.includes(
+    textoOutputDiario.includes(
       "A whole nest of spiders needs to be exterminated as Mamma Longlegs is on the loose."
     )
   ) {
-    output1.innerHTML +=
+    outputDiario.innerHTML +=
       "- 🕷️ <strong>Venore - Estrada oeste</strong> - boss giant spider e achievement <strong>Nestling</strong>.<br><br>";
   }
   if (
-    texto.includes(
+    textoOutputDiario.includes(
       "sandstorm travels through Darama, leading to isles full of deadly creatures inside a nightmare. Avoid the Ankrahmun tar"
     )
   ) {
-    output1.innerHTML +=
+    outputDiario.innerHTML +=
       "- 🏝️ <strong>Nightmare Isle</strong> - perto da <strong>Tumba do petróleo</strong>.<br><br>";
   }
   if (
-    texto.includes(
+    textoOutputDiario.includes(
       "A sandstorm travels through Darama, leading to isles full of deadly creatures inside a nightmare. Avoid the northernmost coast!"
     )
   ) {
-    output1.innerHTML +=
+    outputDiario.innerHTML +=
       "- 🏝️ <strong>Nightmare Isle</strong> - norte de <strong>Darashia</strong>.<br><br>";
   }
   if (
-    texto.includes(
+    textoOutputDiario.includes(
       "A sandstorm travels through Darama, leading to isles full of deadly creatures inside a nightmare. Avoid the river near Drefia!"
     )
   ) {
-    output1.innerHTML +=
+    outputDiario.innerHTML +=
       "- 🏝️ <strong>Nightmare Isle</strong> - perto de <strong>Drefia</strong>.<br><br>";
   }
   if (
-    texto.includes(
+    textoOutputDiario.includes(
       "Not again! Noodles has taken some royal freedom and left the castle, after him in the name of the king!"
     )
   ) {
-    output1.innerHTML +=
+    outputDiario.innerHTML +=
       "- 🐕 <strong>Thais</strong> - Cachorro Noodles fugiu - achievement <strong>Dog Sitter</strong> e recompensa.<br><br>";
   }
   if (
-    texto.includes(
+    textoOutputDiario.includes(
       "The river in Zao Steppe runs deep, there may be more fish than usual!"
     )
   ) {
-    output1.innerHTML +=
+    outputDiario.innerHTML +=
       "- 🏞️ <strong>Zao</strong> - Rio planice sul ativo - achievement <strong>Desert Fisher</strong>.<br><br>";
   }
   if (
-    texto.includes(
+    textoOutputDiario.includes(
       "Adventurers have told of a Spirit Gate in the Daramian mountains. Fight the restless undead!"
     )
   ) {
-    output1.innerHTML +=
+    outputDiario.innerHTML +=
       "- 👻 <strong>Spirit Ground</strong> - <strong>divisa Dara/Ank</strong>.<br><br>";
   }
   if (
-    texto.includes(
+    textoOutputDiario.includes(
       "Stampede! The Ape God has stirred up Tiquanda's elephants again!"
     )
   ) {
-    output1.innerHTML +=
+    outputDiario.innerHTML +=
       "- 🐘 <strong>Port Hope</strong> - <strong>Terrified elephant</strong> - bestiario - achievement <strong>Trail of the Ape God</strong>.<br><br>";
   }
   if (
-    texto.includes(
+    textoOutputDiario.includes(
       "Judging by the unnerved mammoths in Svargrond, enough snow has melted away to reveal some very special flora."
     )
   ) {
-    output1.innerHTML +=
+    outputDiario.innerHTML +=
       "- ❄️ <strong>Svargrond</strong> - Neve derretendo - <strong>flores</strong> - achievement <strong>Ice Harvester</strong>.<br><br>";
   }
   if (
-    texto.includes(
+    textoOutputDiario.includes(
       "A big iceberg has been washed up at the coast north of Port Hope. It seems to be inhabited by strange white furballs."
     )
   ) {
-    output1.innerHTML +=
+    outputDiario.innerHTML +=
       "- 🧊 <strong>Port Hope - Iceberg</strong> - chakoya e achievement Cartography 101.<br><br>";
   }
   if (
-    texto.includes(
+    textoOutputDiario.includes(
       "Strange sounds echo through Trapwood as hunters and dworcs fight over the holy grounds and the game that roams there."
     )
   ) {
-    output1.innerHTML +=
+    outputDiario.innerHTML +=
       "- 🏹 <strong>Port Hope</strong> - hunter OU voodoomaster na área norte da medusa tower - bestiario.<br><br>";
   }
   if (
-    texto.includes(
+    textoOutputDiario.includes(
       "Bibby Bloodbath and her crew are roaming the lands, destroying everything in their path."
     )
   ) {
-    output1.innerHTML +=
+    outputDiario.innerHTML +=
       "- 👹 <strong>Bibby Bloodbath</strong> - ativo - achievement <strong>Bibby's Bloodbath</strong>.<br><br>";
   }
   if (
-    texto.includes(
+    textoOutputDiario.includes(
       "Adventurers have told of a Spirit Gate in Vengoth. Fight the restless undead!"
     )
   ) {
-    output1.innerHTML +=
+    outputDiario.innerHTML +=
       "- 👻 <strong>Spirit Ground</strong> - <strong>Vengoth</strong>.<br><br>";
   }
   if (
-    texto.includes(
+    textoOutputDiario.includes(
       "Adventurers have told of a Spirit Gate in the Ghostlands. Fight the restless undead!"
     )
   ) {
-    output1.innerHTML +=
+    outputDiario.innerHTML +=
       "- 👻 <strong>Spirit Ground</strong> - <strong>Ghostland</strong>.<br><br>";
   }
   if (
-    texto.includes(
+    textoOutputDiario.includes(
       "An ice bridge now connects Svargrond to a frosty island, where monsters and a strange frozen creature"
     )
   ) {
-    output1.innerHTML += "- 🧊 <strong>Chyllfroest</strong> Ativa.<br><br>";
+    outputDiario.innerHTML +=
+      "- 🧊 <strong>Chyllfroest</strong> Ativa.<br><br>";
   }
   //rashid
-  output3.innerHTML +=
+  outputFeatured.innerHTML +=
     "- <strong>👳‍♂️ Rashid está em " + rashid + ". <br><br> </strong>";
   //Criatudas em destaque
-  output3.innerHTML +=
+  outputFeatured.innerHTML +=
     "- <strong> 🧌 Criatura do dia</strong>: " + creatureName + ".<br><br>";
-  output3.innerHTML +=
+  outputFeatured.innerHTML +=
     "- <strong>👺 Boss do dia</strong>: " + bossName + ".<br><br>";
   //tibiaDrome
-  output3.innerHTML += tibiaDrome + ".<br><br>";
+  outputFeatured.innerHTML += tibiaDrome + ".<br><br>";
+}
 
+function criaturasDestaque() {
+  let criaturasDestaque = document.getElementById("outputFeatured");
+
+  // Limpar o conteúdo anterior
+  criaturasDestaque.innerHTML = "";
+  // Obtendo a data atual no formato "dd/MM"
+  let dataAtual = obterDataAtual();
+
+  // Adicionando a primeira linha com a data atual
+  criaturasDestaque.innerHTML +=
+    "<strong>Check diário</strong> - " + dataAtual + "<br><br>";
+
+  document
+    .getElementById("copyButtonDestaque")
+    .addEventListener("click", function () {
+      var criaturaDestaqueDiv = document.getElementById("criaturasDestaque");
+      var textToCopy =
+        criaturaDestaqueDiv.innerText || criaturaDestaqueDiv.textContent;
+
+      // Criar um elemento de texto temporário para copiar o texto
+      var tempTextArea = document.createElement("textarea");
+      tempTextArea.value = textToCopy;
+
+      // Adicionar o elemento temporário à página
+      document.body.appendChild(tempTextArea);
+
+      // Selecionar e copiar o texto
+      tempTextArea.select();
+      document.execCommand("copy");
+
+      // Remover o elemento temporário
+      document.body.removeChild(tempTextArea);
+
+      alert("Conteúdo copiado!");
+    });
+}
+function checkOramond() {
   //Oramond ==================================================================================================================
   if (
     texto.includes(
       "The citizens of Rathleton voted for the shortcut back from the catacombs."
     )
   ) {
-    output2.innerHTML +=
+    output.innerHTML +=
       "- Oramond: Atalho para sair das catacombs de Demons.<br><br>";
   }
   if (texto.includes("The citizens of Rathleton voted for Lisa.")) {
-    output2.innerHTML += "- Boss Lisa ativo.<br><br>";
+    output.innerHTML += "- Boss Lisa ativo.<br><br>";
   }
   if (texto.includes("The citizens of Rathleton voted for the Glooth Fairy")) {
-    output2.innerHTML += "- Boss Glooth Fairy ativo.<br><br>";
+    output.innerHTML += "- Boss Glooth Fairy ativo.<br><br>";
   }
   if (texto.includes("citizens of Rathleton voted for Bullwa")) {
-    output2.innerHTML += "- Boss Bullwark ativo.<br><br>";
+    output.innerHTML += "- Boss Bullwark ativo.<br><br>";
   }
   if (
     texto.includes(
       "The citizens of Rathleton voted for the mechanical creatures raids."
     )
   ) {
-    output2.innerHTML +=
+    output.innerHTML +=
       "- Maior chance de raid de Mechanical Creatures na glooth factory (Salão glooth bomb).<br><br>";
   }
   if (texto.includes("for the wild life creatures raid")) {
-    output2.innerHTML +=
+    output.innerHTML +=
       "- Maior chance da raid Wild Life na glooth factory (Salão do Tremor Worm).<br><br>";
   }
   if (
@@ -714,7 +763,7 @@ function processarTexto() {
       "The citizens of Rathleton voted for the wrath of evil in the dungeon."
     )
   ) {
-    output2.innerHTML +=
+    output.innerHTML +=
       "- Wrath of Evil na Magistrate Dungeon (Rathleton Catacombs).<br><br>";
   }
   if (
@@ -722,18 +771,18 @@ function processarTexto() {
       "The citizens of Rathleton voted for the golems in the dungeon."
     )
   ) {
-    output2.innerHTML +=
+    output.innerHTML +=
       "- Golens na Magistrate Dungeon (Rathleton Catacombs).<br><br>";
   }
   if (texto.includes("voted for the minotaurs in the dunge")) {
-    output2.innerHTML +=
+    output.innerHTML +=
       "- Minotaurs na Magistrate Dungeon (Rathleton Catacombs).<br><br>";
   }
 
   // Se nenhum caso corresponder, exiba uma mensagem padrão
-  // if (output.innerHTML === "") {
-  //   output.innerHTML = "Nenhuma informação correspondente encontrada.";
-  // }
+  if (output.innerHTML === "") {
+    output.innerHTML = "Nenhuma informação correspondente encontrada.";
+  }
 }
 let rashid;
 function obterNomeDoDiaDaSemana() {

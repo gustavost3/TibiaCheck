@@ -2,12 +2,13 @@
  html {
      margin: 0;
      padding: 0;
-     height: 100%;
+     height: fit-content;
      display: flex;
      justify-content: center;
      align-items: center;
     background-image: linear-gradient(to right, #33001b, #ff0084);
      border-radius: 50px;
+     margin-top: auto;
  }
 
 /* centralizar logo no topo da pagina */
@@ -38,8 +39,13 @@ input[type="text"] {
     font-size: 16px;
     margin-bottom: 10px;
 }
+div.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-button {
+#checkButton {
     padding: 10px 20px;
     background-color: #4caf50;
     color: white;
@@ -49,11 +55,11 @@ button {
     width: 100%;
 }
 
-button:hover {
+#checkButton:hover {
     background-color: #45a049;
 }
 
-#output {
+.output-card {
     margin-top: 20px;
     padding: 10px;
     background-color: #ffffff;
@@ -61,7 +67,7 @@ button:hover {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-#output p {
+.output-card p {
     line-height: 1;
     margin: 0;
     padding: 5px 0;
@@ -69,8 +75,8 @@ button:hover {
     font: 10px;
     letter-spacing: -1px;
 }
-#output {
-    max-height: 350px;
+.output-card {
+    max-height: 200px;
     /* Defina a altura máxima desejada */
     overflow-y: auto;
     /* Adicione a propriedade de overflow-y para tornar a div rolável na vertical */
@@ -163,4 +169,66 @@ button:hover {
     }
 }
 
+/* Optimized for flex wrap usage */
+#featured {
+    display: flex;
+    flex-wrap: wrap;
+    /* Enable flex wrap */
+    justify-content: space-between;
+    /* Distribute items evenly with spacing */
+    /* gap: 10px; /* Optionally add spacing between items for visual clarity */
+}
 
+#boss,
+#criatura,
+#rashid {
+    flex-basis: 30%;
+    /* Occupy 30% of available space by default */
+    max-width: 200px;
+    /* Set a maximum width for consistency */
+    /* min-width: 150px; /* Optionally set a minimum width if needed */
+    margin-bottom: 10px;
+    /* Adjust for smaller screens */
+}
+
+/* Media query for smaller screens (adjust as needed) */
+@media (max-width: 768px) {
+    html {
+        display: table;
+    }
+
+    #boss,
+    #criatura,
+    #rashid {
+        flex-basis: 100%;
+        /* Occupy full width on smaller screens */
+        max-width: none;
+        /* Remove maximum width */
+        margin-bottom: 20px;
+        /* Adjust margin for better spacing */
+    }
+}
+#criaturas-em-destaque .criaturas {
+    display: flex;
+    /* Enable flexbox for horizontal layout */
+    justify-content: space-between;
+    /* Distribute divs evenly with spacing */
+    /* Optionally add spacing:
+  gap: 10px;
+  */
+}
+
+#criaturas-em-destaque .criatura,
+#criaturas-em-destaque .boss,
+#criaturas-em-destaque .rashid {
+    flex-basis: 30%;
+    /* Occupy 30% of available space by default */
+    max-width: 200px;
+    /* Set a maximum width for consistency */
+}
+
+#criaturas-em-destaque p {
+    transform: translateY(16px);
+    font-weight: 600;
+    text-align: center;
+}

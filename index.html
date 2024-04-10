@@ -16,60 +16,81 @@
 </head>
 <body>
     
-    <div id="tibiacheck">
-        <img src="src/assets/img/tibiacheck.png" alt="">
-    </div>
-    <div class="container" id="conteudo">
-            <div id="logo">
+    <header>
+        <div id="tibiacheck">
+            <img src="src/assets/img/tibiacheck.png" alt="TibiaCheck logo">
+        </div>
+        <section id="checkSection">
+            <div class="output card output-card card border-light">
+                <div class="card-header">Check diário (NPC guia + Quadro adventurers Guild):<button type="button" class="btn btn-dark" id="copyButton1">Copy</button>
+                </div>
+                <div class="mt-0 card-body" id="output1" style="max-height: 200px; overflow-y: auto;"></div>
+            </div>
+            <div class="output card output-card card border-light">
+                <div class="card-header">Check Oramond:<button type="button" class="btn btn-dark" id="copyButton2">Copy</button>
+                </div>
+                <div class="mt-0 card-body" id="output2" style="max-height: 200px; overflow-y: auto;"></div>
+            </div>
+            <div class="output card output-card card border-light">
+                <div class="card-header">Criaturas em Destaque:<button type="button" class="btn btn-dark"
+                        id="copyButton3">Copy</button></div>
+                <div class="mt-0 card-body" id="output3" style="max-height: 200px; overflow-y: auto;"></div>
+            </div>
+        </section>
+    </header>
+    
+    <main id="conteudo" class="container">
+        <div id="logo">
             <img src="src/assets/img/BOI1.png" alt="Taberna do Boi">
         </div>
-        
-        <!-- div analise de texto -->
-        <div>
-            <input type="text" id="inputText1" placeholder="Insira o texto do NPC guia aqui...">
-            <input type="text" id="inputText2" placeholder="Insira o texto do quadro da Adventures Guild aqui...">
-            <input type="text" id="inputText3" placeholder="Insira o texto do quadro de Oramond aqui...">
-        </div>
-        <div>
-            <button id="checkButton" onclick="processarTexto()">Check!</button>
-            <button id="copyButton" class="mt-1">Copiar check</button>
-        </div>
-        
-
-        <!-- div com boss e criaturas boostadas -->
-        <div id="featuredLabel" class="">
-            <h3>Criaturas em destaque:</h3>
-        </div>
-        <div id="featured" class="col-12">
-            <div id="criaturaLabel">
-                <p class="titulo-pequeno">Criatura do dia: </p>
-                <div id="criatura" class="card rounded shadow"></div>
+    
+        <section id="analise-texto">
+            <h2>Check World C   hanges:</h2>
+            <div class="inputs-texto">
+                <input type="text" id="inputText1" placeholder="Texto do NPC guia">
+                <input type="text" id="inputText2" placeholder="Quadro da Adventures Guild">
+                <input type="text" id="inputText3" placeholder="Quadro de Oramond">
             </div>
         
-            <div id="bossLabel">
-                <p class="titulo-pequeno">Boss do dia: </p>
-                <div id="boss" class="card rounded shadow"></div>
+                
+        
+            <div class="botoes-check">
+                <button id="checkButton" onclick="processarTexto()">Check!</button>
+                <!-- <button id="copyButton">Copiar check</button> -->
             </div>
-            <div id="rashidLabel">
-                <p class="titulo-pequeno">Rashid está em: </p>
-                <div id="rashid" class="card rounded shadow">
-                    <img src="src/assets/img/Rashid.gif" alt="">
-                    <strong>
-                        <p id="nomeDoDiaDaSemana"></p>
-                    </strong>
+        </section>
+    
+        <section id="criaturas-em-destaque">
+            <h2>Criaturas em Destaque</h2>
+            <div class="criaturas">
+                <div class="criatura">
+                    <p>Criatura do Dia</p>
+                    <div id="criatura" class="card rounded shadow"></div>
+                </div>
+                <div class="boss">
+                    <p>Boss do Dia</p>
+                    <div id="boss" class="card rounded shadow"></div>
+                </div>
+                <div class="rashid">
+                    <p>Rashid está em:</p>
+                    <div id="rashid" class="card rounded shadow">
+                        <img src="src/assets/img/Rashid.gif" alt="Rashid">
+                        <strong>
+                            <p id="nomeDoDiaDaSemana"></p>
+                        </strong>
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
+    
+        
+        
+    
+        <footer id="tibiaDrome">
+            <h6>Tibiadrome: Último dia 17/04/2024 às 05:00</h6>
+        </footer>
+    </main>
 
-        <!-- div de outpu -->
-        <div id="output"></div>
-
-        <!-- Div com info da arena drome-->
-
-        <div id="tibiaDrome" class="mt-2">
-            <h6>- 🎰 TIBIA DROME: ultimo dia 17/04/2024 as 05:00</h6>
-        </div>
-    </div>
     
     
 </body>
