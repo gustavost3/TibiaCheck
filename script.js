@@ -102,9 +102,8 @@ function processarTexto() {
   output1.innerHTML +=
     "<strong>Check diário</strong> - " + dataAtual + "<br><br>";
   output2.innerHTML +=
-    "<strong>Check diário</strong> - " +
-    dataAtual +
-    " - <strong>" +
+    "<strong>Oramond</strong> - " +
+    " <strong>" +
     outputContent +
     "</strong>.<br><br>";
   output3.innerHTML +=
@@ -792,7 +791,7 @@ function processInput() {
   if (input) {
     // Se houver uma entrada no localStorage, exiba-a
     document.getElementById("output").innerHTML =
-      "<strong>Ciclo até " + input + "</strong>";
+      "<strong> Até " + input + "</strong>";
     document.getElementById("inputField").style.display = "none"; // Esconder o campo de entrada se houver entrada no localStorage
   } else {
     // Se não houver uma entrada no localStorage, exiba o campo de entrada
@@ -806,7 +805,7 @@ function saveAndDisplayOutput() {
   // Salvar a entrada no localStorage
   saveToLocalStorage(input);
   // Exibir a saída
-  var outputContent = "Ciclo até " + input;
+  var outputContent = "Até " + input;
   document.getElementById("output").textContent = outputContent;
   // Esconder o campo de entrada
   document.getElementById("inputField").style.display = "none";
