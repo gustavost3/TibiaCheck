@@ -47,7 +47,7 @@
         </div>
     
         <section id="analise-texto">
-            <h2>Check World Changes:</h2>
+            <h2>Checks</h2>
             <div class="inputs-texto">
                 <input type="text" id="inputText1" placeholder="Texto do NPC guia">
                 <input type="text" id="inputText2" placeholder="Quadro da Adventures Guild">
@@ -64,14 +64,21 @@
                     <button onclick="saveAndDisplayOutput()" id="checkButton">Salvar data de Ciclo</button>
                     <button onclick="clearLocalStorage()" id="checkButton" class="ml-2 bg-danger">Limpar data de Ciclo</button>
                 </div>
+            </div>    
                 
+            <section class="d-flex">
+                <select id="nomesSelect" class="form-select">
+                    <option aria-placeholder="">Selecione o boss da Arena</option>
+                    <option value="Plagueroot">Plagueroot</option>
+                    <option value="Malofur Mangrinder">Malofur Mangrinder</option>
+                    <option value="Maxxenius">Maxxenius</option>
+                    <option value="Alptramun">Alptramun</option>
+                    <option value="Izcandar the Banished">Izcandar the Banished</option>
+                </select>
             
-                <!-- Botão de reset -->
-                          
-                
-            </div>
-        
-                
+                <button class="btn btn-dark" onclick="selecionarNome()">Selecionar Nome</button>
+            
+            </section>
         
             <div class="botoes-check">
                 <button id="checkButton" onclick="processarTexto()">Check!</button>
@@ -100,6 +107,10 @@
                     </div>
                 </div>
             </div>
+        </section>
+
+        <section>
+            <h2 id="mensagem"></h2>
         </section>
 
         

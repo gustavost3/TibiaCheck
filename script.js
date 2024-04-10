@@ -671,6 +671,10 @@ function processarTexto() {
   ) {
     output1.innerHTML += "- 🧊 <strong>Chyllfroest</strong> Ativa.<br><br>";
   }
+
+  //Galthen no check
+  output3.innerHTML += "- 🎒 <strong>" + mensagemGlobal + ".</strong><br><br>";
+
   //rashid
   output3.innerHTML +=
     "- <strong>👳‍♂️ Rashid está em " + rashid + ". <br><br> </strong>";
@@ -679,6 +683,12 @@ function processarTexto() {
     "- <strong> 🧌 Criatura do dia</strong>: " + creatureName + ".<br><br>";
   output3.innerHTML +=
     "- <strong>👺 Boss do dia</strong>: " + bossName + ".<br><br>";
+
+  //Boss Arena
+  if (nomeSelecionado !== "Selecione o boss da Arena") {
+    output3.innerHTML +=
+      "- 👹 <strong>Boss Arena: " + nomeSelecionado + ".</strong><br><br>";
+  }
   //tibiaDrome
   output3.innerHTML += tibiaDrome + ".<br><br>";
 
@@ -689,16 +699,16 @@ function processarTexto() {
     )
   ) {
     output2.innerHTML +=
-      "- Oramond: Atalho para sair das catacombs de Demons.<br><br>";
+      "- ↪️ Oramond: Atalho para sair das catacombs de Demons.<br><br>";
   }
   if (texto.includes("The citizens of Rathleton voted for Lisa.")) {
-    output2.innerHTML += "- Boss Lisa ativo.<br><br>";
+    output2.innerHTML += "- 👹 Boss Lisa ativo.<br><br>";
   }
   if (texto.includes("The citizens of Rathleton voted for the Glooth Fairy")) {
-    output2.innerHTML += "- Boss Glooth Fairy ativo.<br><br>";
+    output2.innerHTML += "- 👹 Boss Glooth Fairy ativo.<br><br>";
   }
   if (texto.includes("citizens of Rathleton voted for Bullwa")) {
-    output2.innerHTML += "- Boss Bullwark ativo.<br><br>";
+    output2.innerHTML += "- 👹 Boss Bullwark ativo.<br><br>";
   }
   if (
     texto.includes(
@@ -706,11 +716,11 @@ function processarTexto() {
     )
   ) {
     output2.innerHTML +=
-      "- Maior chance de raid de Mechanical Creatures na glooth factory (Salão glooth bomb).<br><br>";
+      "- 🧰 Maior chance de raid de Mechanical Creatures na glooth factory (Salão glooth bomb).<br><br>";
   }
   if (texto.includes("for the wild life creatures raid")) {
     output2.innerHTML +=
-      "- Maior chance da raid Wild Life na glooth factory (Salão do Tremor Worm).<br><br>";
+      "- 🌲 Maior chance da raid Wild Life na glooth factory (Salão do Tremor Worm).<br><br>";
   }
   if (
     texto.includes(
@@ -718,7 +728,7 @@ function processarTexto() {
     )
   ) {
     output2.innerHTML +=
-      "- Wrath of Evil na Magistrate Dungeon (Rathleton Catacombs).<br><br>";
+      "- 🦹‍♂️ Wrath of Evil na Magistrate Dungeon (Rathleton Catacombs).<br><br>";
   }
   if (
     texto.includes(
@@ -726,11 +736,11 @@ function processarTexto() {
     )
   ) {
     output2.innerHTML +=
-      "- Golens na Magistrate Dungeon (Rathleton Catacombs).<br><br>";
+      "- 🗿 Golens na Magistrate Dungeon (Rathleton Catacombs).<br><br>";
   }
   if (texto.includes("voted for the minotaurs in the dunge")) {
     output2.innerHTML +=
-      "- Minotaurs na Magistrate Dungeon (Rathleton Catacombs).<br><br>";
+      "- 🐂 Minotaurs na Magistrate Dungeon (Rathleton Catacombs).<br><br>";
   }
 
   // Se nenhum caso corresponder, exiba uma mensagem padrão
@@ -810,9 +820,52 @@ function saveAndDisplayOutput() {
 }
 
 // Ao carregar a página, verificar se há entrada no localStorage
-window.onload = processInput;
+window.onload = function () {
+  calcularDiasParaProximoDia10();
+  processInput();
+  console.log(mensagemGlobal);
+};
 
 // Função para obter o conteúdo da div "output"
 function getOutputContent() {
   return document.getElementById("output").textContent;
+}
+
+//Funçao boss arena
+var nomeSelecionado;
+function selecionarNome() {
+  var selectElement = document.getElementById("nomesSelect");
+  nomeSelecionado = selectElement.value;
+  console.log("Boss:", nomeSelecionado);
+}
+
+//galthen
+var mensagemGlobal; // Criando a variável global mensagemGlobal
+function calcularDiasParaProximoDia10() {
+  var hojeDataLocal = new Date(); // Renomeando a variável hojeData
+  var proximoDia10DataLocal = new Date(hojeDataLocal); // Renomeando a variável proximoDia10Data
+
+  proximoDia10DataLocal.setDate(10);
+
+  if (hojeDataLocal.getDate() > 10) {
+    proximoDia10DataLocal.setMonth(proximoDia10DataLocal.getMonth() + 1);
+  }
+
+  var diferencaMilissegundosLocal =
+    proximoDia10DataLocal.getTime() - hojeDataLocal.getTime();
+
+  var diasFaltandoLocal = Math.ceil(
+    diferencaMilissegundosLocal / (1000 * 60 * 60 * 24)
+  );
+
+  if (hojeDataLocal.getDate() === 10) {
+    mensagemGlobal = "Hoje é dia de pegar a GALTHEN'S BAG!";
+  } else {
+    mensagemGlobal =
+      "Faltam " + diasFaltandoLocal + " dias para pegar a proxima galthen bag.";
+  }
+
+  document.getElementById("mensagem").textContent = mensagemGlobal;
+
+  return mensagemGlobal;
 }
