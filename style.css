@@ -241,3 +241,7 @@ div.card-header {
     text-align: center;
         
 }
+#analise-texto h2{
+    text-align: center;
+    display: none;
+}

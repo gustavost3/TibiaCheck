@@ -1,6 +1,6 @@
 let bossName = "";
 let creatureName = "";
-let tibiaDrome = "- 🎰 TIBIA DROME: ultimo dia 17/04/2024 as 05:00";
+let tibiaDrome = "- 🎰 TIBIA DROME: ultimo dia 16/04/2024";
 document.addEventListener("DOMContentLoaded", function () {
   //Consultando boss boostado
   fetch("https://api.tibiadata.com/v4/boostablebosses")
@@ -859,10 +859,12 @@ function calcularDiasParaProximoDia10() {
   );
 
   if (hojeDataLocal.getDate() === 10) {
-    mensagemGlobal = "Hoje é dia de pegar a GALTHEN'S BAG!";
+    mensagemGlobal = "Hoje é dia de pegar a Galthen's Satchel!";
   } else {
     mensagemGlobal =
-      "Faltam " + diasFaltandoLocal + " dias para pegar a proxima galthen bag.";
+      "Faltam " +
+      diasFaltandoLocal +
+      " dias para pegar a proxima Galthen's Satchel.";
   }
 
   document.getElementById("mensagem").textContent = mensagemGlobal;
