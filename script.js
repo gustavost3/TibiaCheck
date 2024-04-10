@@ -101,11 +101,7 @@ function processarTexto() {
   // Adicionando a primeira linha com a data atual em cada div de saída
   output1.innerHTML +=
     "<strong>Check diário</strong> - " + dataAtual + "<br><br>";
-  output2.innerHTML +=
-    "<strong>Oramond</strong> - " +
-    " <strong>" +
-    outputContent +
-    "</strong>.<br><br>";
+  output2.innerHTML += "- <strong>" + outputContent + ".</strong><br><br>";
   output3.innerHTML +=
     "<strong>Check diário</strong> - " + dataAtual + "<br><br>";
 
@@ -791,7 +787,7 @@ function processInput() {
   if (input) {
     // Se houver uma entrada no localStorage, exiba-a
     document.getElementById("output").innerHTML =
-      "<strong> Até " + input + "</strong>";
+      "<strong>Check Oramond - Até " + input + "</strong>";
     document.getElementById("inputField").style.display = "none"; // Esconder o campo de entrada se houver entrada no localStorage
   } else {
     // Se não houver uma entrada no localStorage, exiba o campo de entrada
@@ -805,7 +801,7 @@ function saveAndDisplayOutput() {
   // Salvar a entrada no localStorage
   saveToLocalStorage(input);
   // Exibir a saída
-  var outputContent = "Até " + input;
+  var outputContent = "Check Oramond - Até " + input;
   document.getElementById("output").textContent = outputContent;
   // Esconder o campo de entrada
   document.getElementById("inputField").style.display = "none";
