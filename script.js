@@ -94,11 +94,19 @@ function processarTexto() {
   // Obtendo a data atual no formato "dd/MM"
   let dataAtual = obterDataAtual();
 
+  //check do ciclo de oramond
+  var outputContent = getOutputContent();
+  console.log(outputContent); // Irá exibir o conteúdo da div "output" no console
+
   // Adicionando a primeira linha com a data atual em cada div de saída
   output1.innerHTML +=
     "<strong>Check diário</strong> - " + dataAtual + "<br><br>";
   output2.innerHTML +=
-    "<strong>Check diário</strong> - " + dataAtual + "<br><br>";
+    "<strong>Check diário</strong> - " +
+    dataAtual +
+    " - <strong>" +
+    outputContent +
+    "</strong>.<br><br>";
   output3.innerHTML +=
     "<strong>Check diário</strong> - " + dataAtual + "<br><br>";
 
@@ -757,3 +765,59 @@ function obterNomeDoDiaDaSemana() {
 }
 
 window.addEventListener("DOMContentLoaded", obterNomeDoDiaDaSemana);
+
+//Ciclo Oramond================================================================================================================================================
+
+// Função para salvar a entrada no localStorage
+function saveToLocalStorage(input) {
+  localStorage.setItem("inputData", input);
+}
+
+// Função para recuperar a entrada do localStorage
+function getFromLocalStorage() {
+  return localStorage.getItem("inputData");
+}
+
+// Função para limpar o localStorage
+function clearLocalStorage() {
+  localStorage.removeItem("inputData");
+  // Recarregar a página para atualizar a exibição
+  location.reload();
+}
+
+// Função para processar a entrada
+function processInput() {
+  var input = getFromLocalStorage();
+
+  if (input) {
+    // Se houver uma entrada no localStorage, exiba-a
+    document.getElementById("output").innerHTML =
+      "<strong>Ciclo até " + input + "</strong>";
+    document.getElementById("inputField").style.display = "none"; // Esconder o campo de entrada se houver entrada no localStorage
+  } else {
+    // Se não houver uma entrada no localStorage, exiba o campo de entrada
+    document.getElementById("inputField").style.display = "block";
+  }
+}
+
+// Função para salvar a entrada no localStorage e exibir a saída
+function saveAndDisplayOutput() {
+  var input = document.getElementById("inputText").value;
+  // Salvar a entrada no localStorage
+  saveToLocalStorage(input);
+  // Exibir a saída
+  var outputContent = "Ciclo até " + input;
+  document.getElementById("output").textContent = outputContent;
+  // Esconder o campo de entrada
+  document.getElementById("inputField").style.display = "none";
+
+  return outputContent; // Retornar o conteúdo da saída
+}
+
+// Ao carregar a página, verificar se há entrada no localStorage
+window.onload = processInput;
+
+// Função para obter o conteúdo da div "output"
+function getOutputContent() {
+  return document.getElementById("output").textContent;
+}

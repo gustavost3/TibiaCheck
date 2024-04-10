@@ -50,6 +50,23 @@
                 <input type="text" id="inputText1" placeholder="Texto do NPC guia">
                 <input type="text" id="inputText2" placeholder="Quadro da Adventures Guild">
                 <input type="text" id="inputText3" placeholder="Quadro de Oramond">
+                <!-- Campo de entrada -->
+                <div id="inputField" style="display: none;">
+                    <input type="text" id="inputText" name="inputText" placeholder="Data do ciclo de Oramond"><br><br>
+                </div>
+                <!-- Saída -->
+                <div id="output"></div>
+
+                <div id="botoes-data" class="d-flex">
+                    
+                    <button onclick="saveAndDisplayOutput()" id="checkButton">Salvar data de Ciclo</button>
+                    <button onclick="clearLocalStorage()" id="checkButton" class="ml-2 bg-danger">Limpar data de Ciclo</button>
+                </div>
+                
+            
+                <!-- Botão de reset -->
+                          
+                
             </div>
         
                 
@@ -59,7 +76,7 @@
                 <!-- <button id="copyButton">Copiar check</button> -->
             </div>
         </section>
-    
+
         <section id="criaturas-em-destaque">
             <h2>Criaturas em Destaque</h2>
             <div class="criaturas">
@@ -82,6 +99,8 @@
                 </div>
             </div>
         </section>
+
+        
     
         
         

@@ -47,6 +47,7 @@ div.card-header {
 
 #checkButton {
     padding: 10px 20px;
+    margin: 2px;
     background-color: #4caf50;
     color: white;
     border: none;
@@ -235,3 +236,5 @@ div.card-header {
 #tibiaDrome {
     text-align: center;
 }
+
+#output
