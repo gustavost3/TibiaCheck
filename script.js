@@ -685,7 +685,11 @@ function processarTexto() {
     "- <strong>👺 Boss do dia</strong>: " + bossName + ".<br><br>";
 
   //Boss Arena
-  if (nomeSelecionado !== "Selecione o boss da Arena") {
+  if (
+    nomeSelecionado !== undefined &&
+    nomeSelecionado !== "" &&
+    nomeSelecionado !== "Selecione o boss da Arena"
+  ) {
     output3.innerHTML +=
       "- 👹 <strong>Boss Arena: " + nomeSelecionado + ".</strong><br><br>";
   }
