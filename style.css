@@ -1,5 +1,7 @@
  body,
  html {
+     margin-top: 1% !important;
+     margin-bottom: 1% !important;
      margin: 0;
      padding: 0;
      height: fit-content;
