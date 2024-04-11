@@ -865,10 +865,10 @@ function calcularDiasParaProximoDia10() {
   if (hojeDataLocal.getDate() === 10) {
     mensagemGlobal = "Hoje é dia de pegar a Galthen's Satchel!";
   } else {
-    mensagemGlobal =
-      "Faltam " +
-      diasFaltandoLocal +
-      " dias para pegar a proxima Galthen's Satchel.";
+    // mensagemGlobal =
+    //   "Faltam " +
+    //   diasFaltandoLocal +
+    //   " dias para pegar a proxima Galthen's Satchel.";
   }
 
   document.getElementById("mensagem").textContent = mensagemGlobal;
