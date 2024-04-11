@@ -673,7 +673,10 @@ function processarTexto() {
   }
 
   //Galthen no check
-  output3.innerHTML += "- 🎒 <strong>" + mensagemGlobal + ".</strong><br><br>";
+  if (mensagemGlobal != "") {
+    output3.innerHTML +=
+      "- 🎒 <strong>" + mensagemGlobal + ".</strong><br><br>";
+  }
 
   //rashid
   output3.innerHTML +=
@@ -865,6 +868,7 @@ function calcularDiasParaProximoDia10() {
   if (hojeDataLocal.getDate() === 10) {
     mensagemGlobal = "Hoje é dia de pegar a Galthen's Satchel!";
   } else {
+    mensagemGlobal = "";
     // mensagemGlobal =
     //   "Faltam " +
     //   diasFaltandoLocal +
