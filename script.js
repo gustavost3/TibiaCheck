@@ -101,7 +101,7 @@ function processarTexto() {
   // Adicionando a primeira linha com a data atual em cada div de saída
   output1.innerHTML +=
     "<strong>Check diário</strong> - " + dataAtual + "<br><br>";
-  output2.innerHTML += "- <strong>" + outputContent + ".</strong><br><br>";
+  output2.innerHTML += "<strong>" + outputContent + ".</strong><br><br>";
   output3.innerHTML +=
     "<strong>Check diário</strong> - " + dataAtual + "<br><br>";
 
