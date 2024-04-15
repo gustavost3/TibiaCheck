@@ -38,27 +38,20 @@ document.addEventListener("DOMContentLoaded", function () {
   fetch("https://api.tibiadata.com/v4/creatures")
     .then((response) => response.json())
     .then((data) => {
-      const creaturesList = data.creatures.creature_list; // Acessa a lista de criaturas
+      const boostedCreature = data.creatures.boosted; // Acessa a criatura destacada da seção 'boosted'
+      const creatureElement = document.createElement("div");
+      const creatureImage = document.createElement("img"); // Criando a tag de imagem
+      creatureImage.src = boostedCreature.image_url; // Define o atributo src com a URL da imagem
+
+      const creatureNameElement = document.createElement("p"); // Criando um elemento <p> para o nome da criatura
+      creatureNameElement.textContent = boostedCreature.name; // Definindo o texto do elemento <p>
+
+      creatureElement.appendChild(creatureImage); // Adiciona a imagem ao elemento da criatura
+      creatureElement.appendChild(creatureNameElement); // Adiciona o nome da criatura abaixo da imagem
+
       const creaturesListElement = document.getElementById("criatura");
       creaturesListElement.innerHTML = ""; // Limpa a lista antes de adicionar os novos elementos
-
-      creaturesList.forEach((creature) => {
-        if (creature.featured) {
-          // Verifica se a criatura é 'featured'
-          const creatureElement = document.createElement("div");
-          const creatureImage = document.createElement("img"); // Criando a tag de imagem
-          creatureImage.src = creature.image_url; // Define o atributo src com a URL da imagem
-          // creatureImage.alt = ""; // Define uma descrição genérica para a imagem
-
-          const creatureNameElement = document.createElement("p"); // Criando um elemento <p> para o nome da criatura
-          creatureNameElement.textContent = `${creature.name}`; // Definindo o texto do elemento <p>
-          creatureName = creature.name; //Salva o nome da criatura boostada na variavel creatureName
-
-          creatureElement.appendChild(creatureImage); // Adiciona a imagem ao elemento da criatura
-          creatureElement.appendChild(creatureNameElement); // Adiciona o nome da criatura abaixo da imagem
-          creaturesListElement.appendChild(creatureElement);
-        }
-      });
+      creaturesListElement.appendChild(creatureElement); // Adiciona o elemento da criatura destacada à lista
     })
     .catch((error) => {
       console.error("Erro ao buscar dados das criaturas:", error);
