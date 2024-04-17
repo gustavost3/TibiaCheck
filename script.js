@@ -45,6 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       const creatureNameElement = document.createElement("p"); // Criando um elemento <p> para o nome da criatura
       creatureNameElement.textContent = boostedCreature.name; // Definindo o texto do elemento <p>
+      creatureName = boostedCreature.name; //Salva o nome da criatura boostada na variavel creatureName
 
       creatureElement.appendChild(creatureImage); // Adiciona a imagem ao elemento da criatura
       creatureElement.appendChild(creatureNameElement); // Adiciona o nome da criatura abaixo da imagem
