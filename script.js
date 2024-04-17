@@ -2,7 +2,7 @@ let bossName = "";
 let creatureName = "";
 let tibiaDrome = "- 🎰 TIBIA DROME: ultimo dia 01/05/2024";
 document.addEventListener("DOMContentLoaded", function () {
-  //Consultando boss boostado
+  //Consultando boss boostado =======================================================================================================
   fetch("https://api.tibiadata.com/v4/boostablebosses")
     .then((response) => response.json())
     .then((data) => {
@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
       console.error("Erro ao buscar dados:", error);
     });
 
-  //consultando criaturas boostadas
+  //consultando criaturas boostadas===============================================================================================
   fetch("https://api.tibiadata.com/v4/creatures")
     .then((response) => response.json())
     .then((data) => {
@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-//Codigo para mostrar data
+//Codigo para mostrar data===========================================================================================================
 function obterDataAtual() {
   let data = new Date();
   let dia = String(data.getDate()).padStart(2, "0");
@@ -67,7 +67,7 @@ function obterDataAtual() {
   return dia + "/" + mes + "/" + ano;
 }
 
-// Código JavaScript para processar o texto inserido
+// Código JavaScript para processar o texto inserido=================================================================================
 function processarTexto() {
   let texto1 = document.getElementById("inputText1").value;
   let texto2 = document.getElementById("inputText2").value;
@@ -748,6 +748,8 @@ function processarTexto() {
   //   output.innerHTML = "Nenhuma informação correspondente encontrada.";
   // }
 }
+
+//funçao rashid=========================================================================================================================================
 let rashid;
 function obterNomeDoDiaDaSemana() {
   const data = new Date();
@@ -831,7 +833,7 @@ function getOutputContent() {
   return document.getElementById("output").textContent;
 }
 
-//Funçao boss arena
+//Funçao boss arena===============================================================================================================================
 var nomeSelecionado;
 function selecionarNome() {
   var selectElement = document.getElementById("nomesSelect");
@@ -839,7 +841,7 @@ function selecionarNome() {
   console.log("Boss:", nomeSelecionado);
 }
 
-//galthen
+//galthen =========================================================================================================================================
 var mensagemGlobal; // Criando a variável global mensagemGlobal
 function calcularDiasParaProximoDia10() {
   var hojeDataLocal = new Date(); // Renomeando a variável hojeData
