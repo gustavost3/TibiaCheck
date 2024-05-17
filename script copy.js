@@ -1,6 +1,6 @@
 let bossName = "";
 let creatureName = "";
-let tibiaDrome = "- 🎰 TIBIA DROME: ultimo dia 17/04/2024 as 05:00";
+let tibiaDrome = "- 🎰 TIBIA DROME: ultimo dia 29/05/2024 as 05:00";
 document.addEventListener("DOMContentLoaded", function () {
   //Consultando boss boostado
   fetch("https://api.tibiadata.com/v4/boostablebosses")
