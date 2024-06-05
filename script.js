@@ -240,11 +240,11 @@ function processarTexto() {
   // Oramond
   if (texto.includes("The Fire-Feathered Serpent is fast asleep")) {
     output1.innerHTML +=
-      "- 🐍 <strong>Oramond</strong> - Área subaquática - 0000~1499 Seacrest Serpents mortas.<br><br>";
+      "- 🐍 <strong>Oramond</strong> - Área subaquática - 0000~0999 Seacrest Serpents mortas.<br><br>";
   }
   if (texto.includes("The Fire-Feathered Serpent dreams")) {
     output1.innerHTML +=
-      "- 🐍 <strong>Oramond</strong> - Área subaquática - 1500~2999 Seacrest Serpents mortas.<br><br>";
+      "- 🐍 <strong>Oramond</strong> - Área subaquática - 1000~1999 Seacrest Serpents mortas.<br><br>";
   }
   if (texto.includes("The Fire-Feathered Serpent is awake")) {
     output1.innerHTML +=
