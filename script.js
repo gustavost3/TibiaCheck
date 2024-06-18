@@ -1,7 +1,9 @@
 let bossName = "";
 let creatureName = "";
-let tibiaDrome = "- 🎰 TIBIA DROME: ultimo dia 25/06/2024";
+
 document.addEventListener("DOMContentLoaded", function () {
+  const tibiadromeEndContent = document.getElementById('tibiadrome_end').innerHTML;
+  console.log('Conteúdo de tibiadrome_end:', tibiadromeEndContent);
   //Consultando boss boostado =======================================================================================================
   fetch("https://api.tibiadata.com/v4/boostablebosses")
     .then((response) => response.json())
@@ -691,7 +693,8 @@ function processarTexto() {
       "- 👹 <strong>Boss Arena: " + nomeSelecionado + ".</strong><br><br>";
   }
   //tibiaDrome
-  output3.innerHTML += tibiaDrome + ".<br><br>";
+  const tibiadromeEndContent = document.getElementById('tibiadrome_end').innerHTML;
+  output3.innerHTML += "- 🎰 TIBIA DROME: ultimo dia "+ tibiadromeEndContent+"<br><br>";
 
   //Oramond ==================================================================================================================
   if (
@@ -875,3 +878,5 @@ function calcularDiasParaProximoDia10() {
 
   return mensagemGlobal;
 }
+
+

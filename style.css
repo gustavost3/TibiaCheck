@@ -250,3 +250,22 @@ div.card-header {
 #buttonBoss{
     width:  100%;
 }
+#tibiadrome-section {
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+  }
+  table {
+    width: 100%;
+    margin: 0px;
+  }
+  table td {
+    text-align: center;
+    vertical-align: top;
+    border-bottom: 1px dashed #999;
+  }
+  h2 {
+    text-align: center;
+  }
