@@ -1,6 +1,6 @@
  body,
  html {
-     margin-top: 1% !important;
+     
      margin-bottom: 1% !important;
      margin: 0;
      padding: 0;
@@ -8,7 +8,7 @@
      display: flex;
      justify-content: center;
      align-items: center;
-    background-image: linear-gradient(to right, #33001b, #ff0084);
+    background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);
      border-radius: 50px;
      margin-top: auto;
  }
@@ -27,6 +27,7 @@
     max-width: 150px;
 }
 body {
+    margin-top: 1% !important;
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 20px;
