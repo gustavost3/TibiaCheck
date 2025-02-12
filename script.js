@@ -2,8 +2,9 @@ let bossName = "";
 let creatureName = "";
 
 document.addEventListener("DOMContentLoaded", function () {
-  const tibiadromeEndContent = document.getElementById('tibiadrome_end').innerHTML;
-  console.log('Conteúdo de tibiadrome_end:', tibiadromeEndContent);
+  const tibiadromeEndContent =
+    document.getElementById("tibiadrome_end").innerHTML;
+  console.log("Conteúdo de tibiadrome_end:", tibiadromeEndContent);
   //Consultando boss boostado =======================================================================================================
   fetch("https://api.tibiadata.com/v4/boostablebosses")
     .then((response) => response.json())
@@ -693,8 +694,10 @@ function processarTexto() {
       "- 👹 <strong>Boss Arena: " + nomeSelecionado + ".</strong><br><br>";
   }
   //tibiaDrome
-  const tibiadromeEndContent = document.getElementById('tibiadrome_end').innerHTML;
-  output3.innerHTML += "- 🎰 TIBIA DROME: ultimo dia "+ tibiadromeEndContent+"<br><br>";
+  const tibiadromeEndContent =
+    document.getElementById("tibiadrome_end").innerHTML;
+  output3.innerHTML +=
+    "- 🎰 TIBIA DROME: ultimo dia " + tibiadromeEndContent + "<br><br>";
 
   //Oramond ==================================================================================================================
   if (
@@ -726,6 +729,12 @@ function processarTexto() {
     output2.innerHTML +=
       "- 🌲 Maior chance da raid Wild Life na glooth factory (Salão do Tremor Worm).<br><br>";
   }
+
+  if (texto.includes("for the minotaur raids")) {
+    output2.innerHTML +=
+      "- 🐂 Maior chance da raid de Minotauros na glooth factory. <br><br>";
+  }
+
   if (
     texto.includes(
       "The citizens of Rathleton voted for the wrath of evil in the dungeon."
@@ -878,5 +887,3 @@ function calcularDiasParaProximoDia10() {
 
   return mensagemGlobal;
 }
-
-
